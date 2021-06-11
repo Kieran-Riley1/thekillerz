@@ -82,6 +82,7 @@ ul {
 }
 
 .logo img {
+    width: 10%;
     max-width: 80%;
     align-items: center;
     vertical-align: middle;
