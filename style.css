@@ -19,6 +19,7 @@
 /* Global Styles */
 html {
     font-size: 10px;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -82,7 +83,7 @@ ul {
 }
 
 .logo img {
-    margin-top: 10px;
+    margin: 5px;
     width: 10%;
     max-width: 80%;
     align-items: center;
@@ -91,7 +92,7 @@ ul {
 }
 
 .span {
-    margin-top: 15px;
+    margin-top: 20px;
     font-size: 2.6rem;
     color: #fff;
     cursor: pointer;
