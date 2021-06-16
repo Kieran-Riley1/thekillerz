@@ -195,7 +195,7 @@ ul {
     width: auto;
 }
 .main-heading #logo{
-    max-width: 850px;
+    max-width: 800px;
     min-width: none;
     width: 100%;
     height: auto;
@@ -262,41 +262,51 @@ ul {
     margin: 0 auto;
 }
 
-.table {
-    margin-left: auto;
-    margin-right: auto;
-    padding-top: 70px;
-    width: 100%;
-    font-size: 26px;
-    border-collapse: collapse;
-}
+@media screen and (min-width: 1300px) {
+    #breaker {
+        display: none;
+    }
 
-td {
-    padding-top: 25px;
-    padding-bottom: 25px;
-}
 
-tr:not(:last-child) {
-    border-bottom: 5px solid #fff;
+    .table {
+        margin-left: auto;
+        margin-right: auto;
+        padding-top: 70px;
+        min-width: 1300px;
+        font-size: 26px;
+        border-collapse: collapse;
+    }
 
-}
+    td {
+        padding-top: 25px;
+        padding-bottom: 25px;
+    }
 
-.table-tr {
-    padding: 100px;
-}
+    tr:not(:last-child) {
+        border-bottom: 5px solid #fff;
 
-table .t-date {
-    width: 200px;
-}
+    }
 
-table .t-name {
-    text-align: left;
-    width: 600px;
-}
+    .table-tr {
+        padding: 100px;
+    }
 
-table .t-subname {
-    text-align: right;
-    font-size: 20px;
+    table .t-date {
+        width: 200px;
+    }
+
+    table .t-name {
+        text-align: left;
+        width: 600px;
+    }
+
+    table .t-subname {
+        text-align: right;
+        font-size: 20px;
+
+    }
+
+
 
 }
 
@@ -315,6 +325,86 @@ table .table-btn:hover{
     color: #fff;
     background-color: #000;
 }
+
+
+@media screen and (max-width: 1300px) {
+
+    #breaker {
+        display: block;
+    }
+
+    .table {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+        grid-gap: 2.5rem;
+        width: 70%;
+        margin-right: 15%;
+        margin-left: 15%;
+        align-items: center;
+
+    }
+
+    .table hr {
+        width: 200px;
+        margin-right: auto;
+        margin-left: auto;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .table tr {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 6rem;
+        justify-content: center;
+        height: auto;
+        padding: 1rem;
+        color: #fff;
+        position: relative;
+        z-index: 0;
+        border: 3px solid #fff;
+    }
+
+    .table-btn {
+        font-size: 2.5rem;
+    }
+
+
+    .t-name,
+    .t-date,
+    .t-info,
+    .t-subname {
+        text-shadow: 20px 20px 1rem rgba(0, 0, 0, .5);
+        text-align: center;
+
+    }
+    .t-date {
+        font-size: 2.5rem;
+    }
+
+    .t-name {
+        text-align: center;
+        font-size: 3.5rem;
+        margin: 20px;
+    }
+    .t-subname {
+        font-size: 18px;
+    }
+
+    .t-info {
+        font-size: 2rem;
+    }
+    table .table-btn {
+        margin-top: 20px;
+        margin-bottom: 20px;
+
+    }
+
+}
+
+
+
 
 .section-head {
     text-align: center;
