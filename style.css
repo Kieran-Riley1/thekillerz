@@ -12,9 +12,22 @@
     --body: #fff;
     --nav: #000;
     --nav-transparent: rgba(0, 158, 212, .7);
-    --back-transparent: rgba(19, 19, 19, 0.4);
+    --back-transparent: rgba(0, 0, 0, 0.4);
     --gradient: #009ed4;
-    }
+}
+
+::-webkit-scrollbar {
+    width: 15px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: black;
+}
+
+::-webkit-scrollbar-thumb {
+    background: white;
+    border-radius: 10px;
+}
 
 /* Global Styles */
 html {
@@ -217,7 +230,7 @@ ul {
 .tour {
     width: 100%;
     height: auto;
-    background: url('images/image2.png') center no-repeat;
+    background: url('images/image4.jpg') center no-repeat;
     background-size: cover;
     display: flex;
     padding-top: 100px;
