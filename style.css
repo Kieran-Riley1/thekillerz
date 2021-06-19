@@ -463,55 +463,6 @@ table .table-btn:hover{
     opacity: 0.7;
 }
 
-input[type=text],
-input[type=date],
-select,
-textarea {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ccc;
-    margin-top: 6px;
-    margin-bottom: 16px;
-    resize: vertical;
-}
-
-input[type=submit] {
-    background-color: #000033;
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    cursor: pointer;
-    }
-
-input[type=submit]:hover {
-    background-color: #fff;
-    color: #000033;
-}
-
-.form {
-    border-radius: 5px;
-    background-color: #f2f2f2;
-    padding: 30px;
-    font-size: 2rem;
-    width: 70%;
-    color: #000;
-}
-
-.flex {
-    float: left;
-    width: 50%;
-    margin-top: 6px;
-    padding: 20px;
-}
-
-.row:after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
-
-
 
 /* Marquee Style */
 
@@ -585,7 +536,7 @@ input[type=submit]:hover {
 
 .container-form {
     width: 100%;
-    height: 100vh;
+    padding-top: 5rem;
     background-color: #000;
 }
 
@@ -603,6 +554,7 @@ input[type=submit]:hover {
 
 input[type=text],
 input[type=tel],
+input[type=date],
 input[type=email],
 select,
 textarea {
@@ -615,21 +567,25 @@ textarea {
     border-radius: .5rem;
 }
 input[type=submit] {
-    background-color: #000033;
-    color: white;
+    background-color: #fff;
+    color: #000;
     padding: 12px 20px;
     border: none;
     cursor: pointer;
 }
 input[type=submit]:hover {
-    background-color: #fff;
-    color: #000033;
+    background-color: #000;
+    color: #fff;
 }
 
+.link {
+    font-size: 20px;
+}
 
 .form {
     background-color: #000;
-    padding: 30px;
+    padding-right: 30px;
+    padding-left: 30px;
     font-size: 2rem;
     color: #fff;
 }
