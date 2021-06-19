@@ -1,5 +1,5 @@
 $(window).on('load', function () {
-    $(".loader-wrapper").fadeOut("slow");
+    $(".loader-wrapper").delay(1000).fadeOut("slow");
 });
 
 // Navbar

@@ -54,7 +54,8 @@ ul {
 .loader-wrapper {
     width: 100%;
     height: 100%;
-    position: absolute;
+    position: fixed;
+    overflow: hidden;
     top: 0;
     left: 0;
     background-color: #000;
@@ -229,36 +230,38 @@ ul {
     color: var(--nav);
 }
 
+.tour {
+    width: 100%;
+    height: auto;
+    background-size: cover;
+    display: flex;
+    padding-top: 100px;
+    padding-bottom: 150px;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    z-index: 0;
+}
+
+.tour::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: inherit;
+    height: inherit;
+    background-color: var(--back-transparent);
+    z-index: -1;
+    -webkit-transform: translateZ(-999px) scale(2);
+    transform: translateZ(-999px) scale(2);
+    z-index: 3;
+}
+
 
 @media screen and (min-width: 1300px) {
     .tour {
-        width: 100%;
-        height: auto;
         background: url('images/image4.png') center no-repeat;
-        background-size: cover;
-        display: flex;
-        padding-top: 100px;
-        padding-bottom: 150px;
-        align-items: center;
-        text-align: center;
-        position: relative;
-        z-index: 0;
     }
-
-    .tour::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: inherit;
-        height: inherit;
-        background-color: var(--back-transparent);
-        z-index: -1;
-        -webkit-transform: translateZ(-999px) scale(2);
-        transform: translateZ(-999px) scale(2);
-        z-index: 3;
-    }
-
 
 
     #breaker {
@@ -335,31 +338,7 @@ table .table-btn:hover{
 @media screen and (max-width: 1300px) {
 
     .tour {
-        width: 100%;
-        height: auto;
         background: url('images/image5.png') center no-repeat;
-        background-size: cover;
-        display: flex;
-        padding-top: 100px;
-        padding-bottom: 150px;
-        align-items: center;
-        text-align: center;
-        position: relative;
-        z-index: 0;
-    }
-
-    .tour::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: inherit;
-        height: inherit;
-        background-color: var(--back-transparent);
-        z-index: -1;
-        -webkit-transform: translateZ(-999px) scale(2);
-        transform: translateZ(-999px) scale(2);
-        z-index: 3;
     }
 
     .container-tour {
@@ -488,14 +467,18 @@ table .table-btn:hover{
     right: 0;
     bottom: 0;
     position: absolute;
+    padding-right: 20px;
 
 }
 
 .fa {
-    padding-right: 20px;
     padding-bottom: 23px;
     text-align: center;
     text-decoration: none;
+}
+
+#social {
+    font-size: 50px;
 }
 
 .fa:hover {
@@ -649,6 +632,9 @@ input[type=submit]:hover {
         -ms-flex: 100%;
         flex: 100%;
         max-width: 100%;
+    }
+    #social {
+        font-size: 25px;
     }
 
 }
