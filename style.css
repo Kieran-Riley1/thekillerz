@@ -33,11 +33,13 @@
 html {
     font-size: 10px;
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 body {
     font-family: 'Open Sans', sans-serif;
     color: var(--body);
+    background-color: black;
 }
 
 a {
@@ -61,6 +63,7 @@ ul {
     align-items: center;
     margin-left: auto;
     margin-right: auto;
+    z-index: 99999;
 
 }
 
@@ -227,37 +230,37 @@ ul {
 }
 
 
-.tour {
-    width: 100%;
-    height: auto;
-    background: url('images/image4.jpg') center no-repeat;
-    background-size: cover;
-    display: flex;
-    padding-top: 100px;
-    padding-bottom: 150px;
-    align-items: center;
-    text-align: center;
-    position: relative;
-    z-index: 0;
-}
-
-.tour::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: inherit;
-    height: inherit;
-    background-color: var(--back-transparent);
-    z-index: -1;
-    -webkit-transform: translateZ(-999px) scale(2);
-    transform: translateZ(-999px) scale(2);
-    z-index: 3;
-}
-
-
-
 @media screen and (min-width: 1300px) {
+    .tour {
+        width: 100%;
+        height: auto;
+        background: url('images/image4.png') center no-repeat;
+        background-size: cover;
+        display: flex;
+        padding-top: 100px;
+        padding-bottom: 150px;
+        align-items: center;
+        text-align: center;
+        position: relative;
+        z-index: 0;
+    }
+
+    .tour::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: inherit;
+        height: inherit;
+        background-color: var(--back-transparent);
+        z-index: -1;
+        -webkit-transform: translateZ(-999px) scale(2);
+        transform: translateZ(-999px) scale(2);
+        z-index: 3;
+    }
+
+
+
     #breaker {
         display: none;
     }
@@ -330,6 +333,35 @@ table .table-btn:hover{
 
 
 @media screen and (max-width: 1300px) {
+
+    .tour {
+        width: 100%;
+        height: auto;
+        background: url('images/image5.png') center no-repeat;
+        background-size: cover;
+        display: flex;
+        padding-top: 100px;
+        padding-bottom: 150px;
+        align-items: center;
+        text-align: center;
+        position: relative;
+        z-index: 0;
+    }
+
+    .tour::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: inherit;
+        height: inherit;
+        background-color: var(--back-transparent);
+        z-index: -1;
+        -webkit-transform: translateZ(-999px) scale(2);
+        transform: translateZ(-999px) scale(2);
+        z-index: 3;
+    }
+
     .container-tour {
         width: 100%;
         margin: 0 auto;
@@ -495,11 +527,11 @@ table .table-btn:hover{
 .gallery{
     background-color: #000;
     padding-top: 50px;
-    padding-left: 5%;
-    padding-right: 5%;
+    padding-left: 2.5%;
+    padding-right: 2.5%;
     background-color: #000;
     z-index: 0;
-    width: 90%;
+    width: 95%;
     margin-left: auto;
     margin-right: auto;
 }
@@ -542,7 +574,9 @@ table .table-btn:hover{
 
 
 .container-form {
-    width: 100%;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
     padding-top: 5rem;
     background-color: #000;
 }
@@ -616,10 +650,6 @@ input[type=submit]:hover {
         flex: 100%;
         max-width: 100%;
     }
-    .form-column, input[type=submit] {
-        width: 100%;
-        margin-top: 0;
-    }
 
 }
 
@@ -672,6 +702,16 @@ input[type=submit]:hover {
     }
     .nav-link:hover {
         color: #fff;
+    }
+
+}
+
+@media screen and (max-width: 1200px) {
+
+
+    .form-column, input[type=submit] {
+        width: 100%;
+        margin-top: 0;
     }
 
 }
