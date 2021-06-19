@@ -234,7 +234,7 @@ ul {
     background-size: cover;
     display: flex;
     padding-top: 100px;
-    padding-bottom: 200px;
+    padding-bottom: 150px;
     align-items: center;
     text-align: center;
     position: relative;
@@ -255,16 +255,17 @@ ul {
     z-index: 3;
 }
 
-.container-tour {
-    width: 100%;
-    max-width: 150rem;
-    padding: 0 1.5rem;
-    margin: 0 auto;
-}
+
 
 @media screen and (min-width: 1300px) {
     #breaker {
         display: none;
+    }
+    .container-tour {
+        width: 100%;
+        max-width: 150rem;
+        padding: 0 1.5rem;
+        margin: 0 auto;
     }
 
 
@@ -273,6 +274,7 @@ ul {
         margin-right: auto;
         padding-top: 70px;
         min-width: 1300px;
+        width: auto;
         font-size: 26px;
         border-collapse: collapse;
     }
@@ -328,6 +330,11 @@ table .table-btn:hover{
 
 
 @media screen and (max-width: 1300px) {
+    .container-tour {
+        width: 100%;
+        margin: 0 auto;
+
+    }
 
     #breaker {
         display: block;
@@ -335,7 +342,7 @@ table .table-btn:hover{
 
     .table {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(auto, 1fr));
         grid-gap: 2.5rem;
         width: 70%;
         margin-right: 15%;
@@ -345,7 +352,7 @@ table .table-btn:hover{
     }
 
     .table hr {
-        width: 200px;
+        width: auto;
         margin-right: auto;
         margin-left: auto;
         margin-top: 10px;
@@ -355,13 +362,13 @@ table .table-btn:hover{
     .table tr {
         display: flex;
         flex-direction: column;
-        align-items: center;
+        /* align-items: center; */
         margin-top: 6rem;
-        justify-content: center;
+        /* justify-content: center; */
         height: auto;
         padding: 1rem;
         color: #fff;
-        position: relative;
+        /* position: relative; */
         z-index: 0;
         border: 3px solid #fff;
     }
