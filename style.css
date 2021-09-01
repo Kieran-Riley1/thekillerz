@@ -263,7 +263,6 @@ ul {
         background: url('images/image4.png') center no-repeat;
         box-shadow: inset  0px -100px 80px -50px #000;
 
-
     }
 
 
@@ -318,7 +317,6 @@ ul {
     }
 
 
-
 }
 
 table .table-btn {
@@ -369,8 +367,8 @@ table .table-btn:hover{
         width: auto;
         margin-right: auto;
         margin-left: auto;
-        margin-top: 10px;
-        margin-bottom: 10px;
+        margin-top: 5px;
+        margin-bottom: 5px;
     }
 
     .table tr {
@@ -563,7 +561,7 @@ table .table-btn:hover{
     width: 90%;
     margin-left: auto;
     margin-right: auto;
-    padding-top: 5rem;
+    margin-top: 100px;
     background-color: #000;
 }
 
@@ -627,6 +625,92 @@ input[type=submit]:hover {
     display: table;
     clear: both;
 }
+
+
+.container-about {
+    margin-top: 100px;
+    margin-right: 10%;
+    margin-left: 10%;
+}
+
+.about-us-text {
+    color: #fff;
+    flex: 1;
+    /* width: 50%; */
+    font-size: 1.6rem;
+    text-align: center;
+}
+
+
+
+.container-meet {
+    margin-top: 100px;
+    margin-right: 10%;
+    margin-left: 10%;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    grid-gap: 2.5rem;
+}
+
+.grid-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.featured-meet-the-band {
+    height: 35rem;
+    color: #fff;
+    padding: 2rem;
+    position: relative;
+    z-index: 0;
+}
+
+
+.featured-meet-the-band::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--back-transparent);
+    z-index: -1;
+}
+
+.band-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -2;
+}
+
+.band-name {
+    text-align: center;
+    font-size: 2.9rem;
+    text-shadow: 20px 20px 1rem rgba(0, 0, 0, .5);
+
+}
+
+.grid-item i{
+    padding-right: 0.5rem;
+}
+
+.band-member {
+    margin-top: 10px;
+    border: #fff 2px solid;
+    font-size: 1.6rem;
+    padding: 20px;
+}
+
+
 
 
 @media screen and (max-width: 600px) {
@@ -702,6 +786,8 @@ input[type=submit]:hover {
         width: 100%;
         margin-top: 0;
     }
+
+
 
 }
 

@@ -65,4 +65,10 @@ $('form').on('submit', function(e) {
     e.preventDefault();
 
 });
-
+$('.band-info').hover(function() {
+    bandName = $(this).attr('id')
+    $(`#${bandName}-info`).slideDown();
+}, function(){
+    bandName = $(this).attr('id')
+    $(`#${bandName}-info`).slideUp("fast");
+})
