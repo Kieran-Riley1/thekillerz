@@ -4,17 +4,22 @@ $(window).on('load', function () {
 
 // Navbar
 let header = document.querySelector('.header');
-let span = document.querySelector('.span');
 
 window.addEventListener('scroll', function(){
     let windowPos = window.scrollY > 0;
     header.classList.toggle('active', windowPos)
 })
 
-span.addEventListener('click', function () {
+
+$('.span').on('click', function () {
     header.classList.toggle('nav-menu-open');
     $('#marquee').toggle()
 })
+$('.nav-link').on('click', function () {
+    header.classList.toggle('nav-menu-open');
+    $('#marquee').hide()
+})
+
 
 // Marquee
 window.addEventListener('scroll', function(){
@@ -65,10 +70,16 @@ $('form').on('submit', function(e) {
     e.preventDefault();
 
 });
+
 $('.band-info').hover(function() {
     bandName = $(this).attr('id')
     $(`#${bandName}-info`).slideDown();
 }, function(){
     bandName = $(this).attr('id')
     $(`#${bandName}-info`).slideUp("fast");
+})
+
+$('.band-info').on('click', function() {
+    bandName = $(this).attr('id')
+    $(`#${bandName}-info`).toggle();
 })
