@@ -166,6 +166,10 @@ ul {
     padding: 1rem;
 }
 
+.nav-link:hover {
+    text-shadow:1px 1px 10px #00ffff, 1px 1px 10px #00ffff;
+}
+
 .hero {
     width: 100%;
     height: 100vh;
@@ -235,6 +239,7 @@ ul {
     height: auto;
     background-size: cover;
     display: flex;
+    padding-top: 100px;
     padding-bottom: 50px;
     align-items: center;
     text-align: center;
@@ -256,16 +261,19 @@ ul {
     z-index: 3;
 }
 
+.t-date,
+.t-name,
+.t-subname,
+.t-subname2 {
+    text-transform: uppercase;
+}
+
 
 @media screen and (min-width: 1300px) {
     .tour {
         background: url('images/image4.png') center no-repeat;
-        box-shadow: inset  0px -100px 80px -50px #000;#
-        padding-top: 150px;
-
-
+        box-shadow: inset  0px -100px 80px -50px #000;
     }
-
 
     #breaker {
         display: none;
@@ -276,7 +284,6 @@ ul {
         padding: 0 1.5rem;
         margin: 0 auto;
     }
-
 
     .table {
         margin-left: auto;
@@ -294,7 +301,7 @@ ul {
     }
 
     tr:not(:last-child) {
-        border-bottom: 5px solid #fff;
+        border-bottom: 4px solid #fff;
 
     }
 
@@ -316,8 +323,6 @@ ul {
         font-size: 20px;
 
     }
-
-
 }
 
 table .table-btn {
@@ -347,7 +352,6 @@ table .table-btn:hover{
     .container-tour {
         width: 100%;
         margin: 0 auto;
-
     }
 
     #breaker {
@@ -362,9 +366,7 @@ table .table-btn:hover{
         margin-right: 15%;
         margin-left: 15%;
         align-items: center;
-
     }
-
 
     .table hr {
         width: auto;
@@ -377,7 +379,6 @@ table .table-btn:hover{
     .table tr {
         display: flex;
         flex-direction: column;
-        margin-top: 6rem;
         height: auto;
         padding: 0.5rem;
         color: #fff;
@@ -385,8 +386,8 @@ table .table-btn:hover{
         border: 3px solid #fff;
     }
 
-    .table-btn {
-        font-size: 2.5rem;
+    .table tr:not(:first-child) {
+        margin-top: 4rem;
     }
 
     .t-name,
@@ -398,31 +399,34 @@ table .table-btn:hover{
 
     }
     .t-date {
-        font-size: 2.5rem;
+        font-size: 2rem;
+        padding-top: 10px;
     }
 
     .t-name {
         text-align: center;
-        font-size: 3.5rem;
-        margin: 20px;
+        font-size: 2.5rem;
+        margin: 10px;
     }
+
     .t-subname {
-        font-size: 18px;
+        font-size: 15px;
+    }
+
+    .t-subname2 {
+        font-size: 13px;
     }
 
     .t-info {
         font-size: 2rem;
     }
     table .table-btn {
-        margin-top: 20px;
-        margin-bottom: 20px;
-
+        margin-top: 12px;
+        margin-bottom: 12px;
+        font-size: 2rem;
+        padding: 12px;
     }
-
 }
-
-
-
 
 .section-head {
     text-align: center;
@@ -432,7 +436,7 @@ table .table-btn:hover{
 .heading {
     color: #fff;
     display: block;
-    font-size: 3.5rem;
+    font-size: 4rem;
 }
 
 .subheading {
@@ -471,6 +475,10 @@ table .table-btn:hover{
 
 }
 
+.social-btn:hover {
+    text-shadow:1px 1px 10px #00ffff, 1px 1px 10px #00ffff;
+}
+
 .fa {
     padding-bottom: 23px;
     text-align: center;
@@ -479,10 +487,6 @@ table .table-btn:hover{
 
 #social {
     font-size: 50px;
-}
-
-.fa:hover {
-    opacity: 0.7;
 }
 
 
@@ -575,6 +579,9 @@ table .table-btn:hover{
     z-index: -1;
 }
 
+#gall-img {
+    width: 100%;
+}
 
 input[type=text],
 input[type=tel],
@@ -608,8 +615,6 @@ input[type=submit]:hover {
 
 .form {
     background-color: #000;
-    padding-right: 30px;
-    padding-left: 30px;
     font-size: 2rem;
     color: #fff;
 }
@@ -623,6 +628,7 @@ input[type=submit]:hover {
     content: "";
     display: table;
     clear: both;
+    margin-bottom: 10px;
 }
 
 
@@ -708,7 +714,6 @@ input[type=submit]:hover {
     font-size: 1.6rem;
     padding: 20px;
 }
-
 
 
 
