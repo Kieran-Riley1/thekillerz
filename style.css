@@ -65,8 +65,24 @@ ul {
     margin-left: auto;
     margin-right: auto;
     z-index: 99999;
+    display: flex;
+    flex-direction: column;
 
 }
+
+.loading-animation::after {
+    display: inline-block;
+    animation: ellipsis steps(1,end) 1.5s infinite;
+    content: '';
+  }
+
+  @keyframes ellipsis {
+    0%   { content: ''; }
+    25%  { content: '.'; }
+    50%  { content: '..'; }
+    75%  { content: '...'; }
+    100% { content: ''; }
+  }
 
 .container {
     width: 100%;
@@ -166,7 +182,8 @@ ul {
     padding: 1rem;
 }
 
-.nav-link:hover {
+.nav-link:hover,
+#view-more-btn:hover {
     text-shadow:1px 1px 10px #00ffff, 1px 1px 10px #00ffff;
 }
 
@@ -263,6 +280,7 @@ ul {
 
 .t-date,
 .t-name,
+.t-info,
 .t-subname,
 .t-subname2 {
     text-transform: uppercase;
@@ -291,7 +309,7 @@ ul {
         padding-top: 70px;
         min-width: 1300px;
         width: auto;
-        font-size: 26px;
+        font-size: 24px;
         border-collapse: collapse;
     }
 
@@ -320,7 +338,7 @@ ul {
 
     table .t-subname {
         text-align: right;
-        font-size: 20px;
+        font-size: 19px;
 
     }
 }
@@ -330,7 +348,7 @@ table .table-btn {
     background-color: #fff;
     color: #000;
     font-size: 20px;
-    padding: 15px;
+    padding: 13px;
     border-style: none;
     outline: none;
     font-weight: bold;
@@ -387,13 +405,14 @@ table .table-btn:hover{
     }
 
     .table tr:not(:first-child) {
-        margin-top: 4rem;
+        margin-top: 2rem;
     }
 
     .t-name,
     .t-date,
     .t-info,
     .t-subname {
+        text-transform: uppercase;
         text-shadow: 20px 20px 1rem rgba(0, 0, 0, .5);
         text-align: center;
 
@@ -445,24 +464,31 @@ table .table-btn:hover{
     font-weight: 600;
 }
 
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
-    grid-gap: 2.5rem;
+.flex {
+    display: flex;
+    flex: 1 0 50%;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
-.grid-item {
+.flex-item {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-.grid-item .button{
+.flex-item .button{
     margin-top: 6rem;
 }
-.grid-item i{
+.flex-item i{
     padding-right: 0.5rem;
+}
+
+.band-info {
+    min-width: 315px;
+    margin: 12px;
+    flex: 0 0 23%;
 }
 
 /* Social Media Buttons */
@@ -511,16 +537,37 @@ table .table-btn:hover{
 
 /* Gallery */
 
-.gallery{
+.gallery {
     background-color: #000;
-    padding-top: 50px;
-    padding-left: 2.5%;
-    padding-right: 2.5%;
-    background-color: #000;
+    padding: 50px 0 2.5% 0;
     z-index: 0;
     width: 95%;
     margin-left: auto;
     margin-right: auto;
+    transition: 1s;
+    height: 1000px;
+    overflow-y: hidden;
+}
+
+#view-more-btn {
+    background: none;
+	color: #fff;
+	border: none;
+	padding: 0;
+	font-size: 20px;
+	cursor: pointer;
+    font-weight: bold;
+}
+
+
+.btn-container {
+    width: 100%;
+    text-align: center;
+    box-shadow: 0px -10px 20px 16px #000000;
+    top: -20px;
+    position: relative;
+    background-color: #000;
+    height: 30px;
 }
 
 .container-gallery {
@@ -579,8 +626,9 @@ table .table-btn:hover{
     z-index: -1;
 }
 
-#gall-img {
+.gall-img {
     width: 100%;
+    border-radius: 7px;
 }
 
 input[type=text],
@@ -715,7 +763,11 @@ input[type=submit]:hover {
     padding: 20px;
 }
 
-
+#dialog {
+    width: 100px;
+    height: 100px;
+    background-color: #fff;
+}
 
 @media screen and (max-width: 600px) {
 
@@ -730,7 +782,6 @@ input[type=submit]:hover {
 
 }
 
-
 @media screen and (max-width: 800px) {
     .column {
         -ms-flex: 50%;
@@ -738,7 +789,6 @@ input[type=submit]:hover {
         max-width: 50%;
     }
 }
-
 
 @media screen and (min-width: 768px){
     .header{
@@ -749,7 +799,6 @@ input[type=submit]:hover {
     }
 
 }
-
 
 @media screen and (min-width: 1000px){
 
@@ -791,7 +840,9 @@ input[type=submit]:hover {
         margin-top: 0;
     }
 
-
-
 }
 
+#nice-try {
+    position: absolute;
+    right: 100000px;
+}

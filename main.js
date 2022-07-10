@@ -1,6 +1,199 @@
+
+let gigs = [
+   {
+        "date": "01-07-2022",
+        "venue": "Camper Jam",
+        "city": "Shropshire",
+        "location": "England",
+        "ticket_link": "https://www.camperjam.com/tickets/"
+   },
+   {
+        "date": "15-07-2022",
+        "venue": "Napton Festival",
+        "city": "Warwicksire",
+        "location": "England",
+        "ticket_link": "https://naptonfestival.co.uk/tickets.php"
+    },
+    {
+        "date": "12-07-2022",
+        "venue": "Todd in the Hole",
+        "city": "Stevenage",
+        "location": "England",
+        "ticket_link": "https://toddinthehole.ticketline.co.uk/"
+   },
+   {
+        "date": "30-07-2022",
+        "venue": "BFest",
+        "city": "Braithwell",
+        "location": "England",
+        "ticket_link": "https://bfestbraithwell.com/product/bfest-2022-ticket/"
+    },
+    {
+        "date": "06-07-2022",
+        "venue": "Rock the Park",
+        "city": "Wrexham",
+        "location": "Wales",
+        "ticket_link": "https://www.rockthepark.co.uk/tickets"
+   },
+   {
+        "date": "12-08-2022",
+        "venue": "Gloworm Festival",
+        "city": "Newark",
+        "location": "England",
+        "ticket_link": "https://www.gigantic.com/gloworm-festival-tickets"
+    },
+    {
+        "date": "28-08-2022",
+        "venue": "Sommerset Tribute Festival",
+        "city": "Yeovil",
+        "location": "England",
+        "ticket_link": "https://www.eventbrite.co.uk/e/somerset-tribute-festival-2022-tickets-246885730867"
+    },
+    {
+        "date": "10-09-2022",
+        "venue": "Whitwell Festival",
+        "city": "Derbyshire",
+        "location": "England",
+        "ticket_link": "https://www.whitwellfestivalofmusic.org.uk/shop"
+    },
+    {
+        "date": "08-10-2022",
+        "venue": "Milton Rooms",
+        "city": "Yorkshire",
+        "location": "England",
+        "ticket_link": "https://themiltonrooms.com/event/the-killerz/"
+    },
+    {
+        "date": "26-11-2022",
+        "venue": "The Formum Music Centre",
+        "city": "Darlington",
+        "location": "England",
+        "ticket_link": ""
+    },
+
+]
+
+format = [
+
+    {
+        "date": "DD-MM-YYYY",
+        "venue": "XXX",
+        "city": "XXX",
+        "location": "XXX",
+        "ticket_link": ""
+    },
+
+]
+
+var today = new Date();
+
 $(window).on('load', function () {
+    getTableData();
+    getMarqueeData();
     $(".loader-wrapper").fadeOut("slow");
 });
+
+function sortByDate(arr) {
+    const sorter = (a, b) => {
+       return new Date.parse(a.date).getTime() - new Date.parse(b.date).getTime();
+    };
+    arr["DATA"].sort(sorter);
+    return arr;
+};
+
+
+function getTableData() {
+
+    let gigHtml = '';
+
+    for (x in gigs) {
+        let gig = gigs[x]
+
+        var dateParts = gig.date.split("-");
+        var dateFormat = new Date(+dateParts[2], dateParts[1] - 1, +dateParts[0]);
+        var gigDate =  new Date(dateFormat);
+
+        if (gigDate > today) {
+            gigHtml += `
+                <tr>
+                    <td class="t-date">
+                        ${convertDate(gigDate)}
+                    </td>
+                    <td class="t-name">
+                        ${gig.venue}<br>
+                        <div id="breaker"><hr></div>
+                    </td>
+                    <td class="t-subname">
+                        ${gig.city}
+                        <br>
+                        <p class="t-subname2">
+                            ${gig.location}
+                        </p>
+                    </td>
+                `;
+                if (gig.ticket_link) {
+                    gigHtml += `
+                            <td>
+                                <button class="table-btn" onclick="window.open('${gig.ticket_link}' + location.search)">
+                                    BOOK NOW
+                                </button>
+                            </td>
+                        </tr>
+                    `;
+                } else {
+                    gigHtml += `
+                        <td>
+                            <button class="table-btn" disabled>
+                                COMING SOON
+                            </button>
+                        </td>
+                    </tr>
+                `;}
+        } else {
+            continue
+        }
+    }
+    $("#gig-table").html(gigHtml)
+
+};
+
+function getMarqueeData() {
+    var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July',
+                  'August', 'September', 'October', 'November', 'December'];
+
+    let marqueeText = '<h7><strong>Upcoming tour dates:</strong></h7>\
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+    const lineBreak = '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'
+
+    for (x in gigs) {
+        let gig = gigs[x]
+
+        var dateParts = gig.date.split("-");
+        var dateFormat = new Date(+dateParts[2], dateParts[1] - 1, +dateParts[0]);
+        var gigDate =  new Date(dateFormat);
+
+        var fullDate = `${days[gigDate.getDay()]} ${gigDate.getDate()}th \
+                        ${months[gigDate.getMonth()]} ${gigDate.getFullYear()} `
+
+        if (gigDate > today) {
+            marqueeText += `${fullDate} - ${gig.venue}, ${gig.city}`
+            marqueeText += lineBreak
+        } else {
+            continue
+        }
+    }
+    $("#marquee-text").html(marqueeText)
+
+};
+
+function convertDate(s) {
+    return s.toLocaleString('en-GB', {
+        day: 'numeric',
+        month: 'short',
+        year: 'numeric'
+    });
+  }
 
 // Navbar
 let header = document.querySelector('.header');
@@ -10,11 +203,11 @@ window.addEventListener('scroll', function(){
     header.classList.toggle('active', windowPos)
 })
 
-
 $('.span').on('click', function () {
     header.classList.toggle('nav-menu-open');
     $('#marquee').toggle()
 })
+
 $('.nav-link').on('click', function () {
     header.classList.toggle('nav-menu-open');
     $('#marquee').hide()
@@ -47,33 +240,60 @@ $(function () {
 
 $('form').on('submit', function(e) {
 
-    var dataString = $(this).serialize();
+    if (validate()) {
 
-    $.ajax({
-      type: "POST",
-      url: "thekillerz.php",
-      data: dataString,
-      success: function () {
-        $("form").html("<div id='message'></div>");
-        $("#message")
-          .html("<h2>Contact Form Submitted!</h2>")
-          .append("<p>We will be in touch soon.</p>")
-          .hide()
-          .fadeIn(1500, function () {
-            $("#message").append(
-              "<img id='checkmark' src='images/check.png' />"
-            );
-          });
-      }
-    });
+        // TODO: Add form logic
 
-    e.preventDefault();
+        action="contact.php">
+        e.preventDefault();
+    }
 
 });
 
+function isValidURL(string) {
+    if (new RegExp("([a-zA-Z0-9]+://)?([a-zA-Z0-9_]+:[a-zA-Z0-9_]+@)?([a-zA-Z0-9.-]+\\.[A-Za-z]{2,4})(:[0-9]+)?(/.*)?").test
+        (string) || !$('#email').val().includes("http")) {
+        return true
+    }
+    return false
+};
+
+function validate() {
+    var acceptedDomains = ['.com', '.co.uk'];
+
+    var dummy = $('#nice-try').val() == ''
+    var email = (new RegExp(acceptedDomains.join('|')).test($('#email').val()))
+
+    var message = isValidURL($('#message').val());
+
+    if (dummy && email && !message) {
+        return true
+    }
+    return false
+};
+
+$('#submit_btn').on('click', function () {
+    $('#dialog').dialog({
+        title: 'Disconnect User',
+        width: '400px',
+        modal: true
+    });
+})
+
+
+$('#view-more-btn').on('click', function () {
+    if ($(window).width() < 800) {
+        $('.gallery').css('height', 'auto');
+    }
+    else {
+        $('.gallery').css('height', '2700px');
+    }
+    $('.btn-container').toggle()
+});
+
+
 $('.band-info').hover(function() {
     bandName = $(this).attr('id')
-    console.log(bandName)
     $(`#${bandName}-info`).slideDown("slow");
 }, function(){
     bandName = $(this).attr('id')
@@ -187,24 +407,6 @@ var samHTML = `
     </div>
 
 `
-
-$(window).on("load resize",function(e){
-    if ($(window).width() <= 780) {
-        $('#select-1').append(mikeHTML)
-        $('#select-2').append(aidenHTML)
-        $('#select-3').append(lewisHTML)
-        $('#select-4').append(samHTML)
-    } else {
-        $('.toggle').toggle()
-        $('#main-web').html(`
-            ${mikeHTML}
-            ${aidenHTML}
-            ${lewisHTML}
-            ${samHTML}
-        `)
-    }
-})
-
 
 
 
