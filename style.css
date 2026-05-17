@@ -167,50 +167,6 @@ html.is-scrolling { scrollbar-color: rgba(255,255,255,0.4) transparent; }
     transform: translateY(-2px);
 }
 
-/* Scroll-down indicator */
-.hero-scroll {
-    position: absolute;
-    bottom: 1.5rem;
-    left: 50%;
-    transform: translateX(-50%);
-    display: none;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.6rem;
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 0.65rem;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    z-index: 3;
-    animation: fadeIn 1s ease-out 1.2s both;
-    transition: color 0.3s ease;
-}
-@media (min-width: 768px) {
-    .hero-scroll { display: flex; }
-}
-.hero-scroll:hover { color: #fff; }
-.hero-scroll__line {
-    width: 1px;
-    height: 50px;
-    background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.6));
-    position: relative;
-    overflow: hidden;
-}
-.hero-scroll__line::after {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: 0;
-    width: 100%;
-    height: 50%;
-    background: linear-gradient(to bottom, transparent, #fff);
-    animation: scroll-drop 2s ease-in-out infinite;
-}
-@keyframes scroll-drop {
-    0% { top: -50%; }
-    100% { top: 100%; }
-}
-
 /* Hero social pills */
 .hero-social {
     width: 2.5rem;
@@ -285,8 +241,8 @@ html.is-scrolling { scrollbar-color: rgba(255,255,255,0.4) transparent; }
     display: grid;
     grid-template-columns: auto 1fr auto;
     align-items: center;
-    gap: 1rem;
-    padding: 1rem 1.25rem;
+    gap: 0.85rem;
+    padding: 0.6rem 1rem;
     background: rgba(255, 255, 255, 0.04);
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 1rem;
@@ -311,23 +267,23 @@ html.is-scrolling { scrollbar-color: rgba(255,255,255,0.4) transparent; }
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-width: 4.5rem;
-    padding: 0.5rem 0.75rem;
+    min-width: 3.75rem;
+    padding: 0.4rem 0.6rem;
     background: rgba(255, 255, 255, 0.06);
     border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 0.75rem;
+    border-radius: 0.65rem;
     line-height: 1.1;
 }
 
 .gig-date__day {
-    font-size: 1.75rem;
+    font-size: 1.35rem;
     font-weight: 700;
     color: #fff;
     line-height: 1;
 }
 
 .gig-date__month {
-    font-size: 0.75rem;
+    font-size: 0.65rem;
     font-weight: 700;
     letter-spacing: 0.15em;
     text-transform: uppercase;
@@ -336,11 +292,11 @@ html.is-scrolling { scrollbar-color: rgba(255,255,255,0.4) transparent; }
 }
 
 .gig-date__year {
-    font-size: 0.65rem;
+    font-size: 0.55rem;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     color: rgba(255, 255, 255, 0.55);
-    margin-top: 0.25rem;
+    margin-top: 0.2rem;
 }
 
 .gig-info {
@@ -384,10 +340,10 @@ html.is-scrolling { scrollbar-color: rgba(255,255,255,0.4) transparent; }
 }
 
 .gig-cta--book:hover {
-    background: #00ffff;
-    color: #000;
+    background: #e10600;
+    color: #fff;
     transform: scale(1.04);
-    box-shadow: 0 0 24px rgba(0, 255, 255, 0.4);
+    box-shadow: 0 0 24px rgba(225, 6, 0, 0.45);
 }
 
 .gig-cta--soon {
@@ -468,7 +424,7 @@ html.is-scrolling { scrollbar-color: rgba(255,255,255,0.4) transparent; }
     padding-right: 3rem;
     font-weight: 500;
     letter-spacing: 0.02em;
-    line-height: 1;
+    line-height: 1.4;
 }
 .marquee-content strong {
     color: #fff;
@@ -521,27 +477,30 @@ html.is-scrolling { scrollbar-color: rgba(255,255,255,0.4) transparent; }
 @media (min-width: 1024px) {
     .band-grid {
         grid-template-columns: repeat(4, 1fr);
-        max-width: none;
-        gap: 1.5rem;
+        max-width: 90rem;
+        gap: 2rem;
     }
 }
 
 .band-card {
+    position: relative;
     display: flex;
     flex-direction: column;
     border-radius: 1.25rem;
     overflow: hidden;
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255, 255, 255, 0.08);
-    transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
-                border-color 0.4s ease,
-                box-shadow 0.4s ease;
+    transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+                border-color 0.6s ease,
+                box-shadow 0.6s ease;
+    will-change: transform;
 }
 
 .band-card:hover {
-    transform: translateY(-4px);
-    border-color: rgba(255, 255, 255, 0.18);
-    box-shadow: 0 20px 50px -20px rgba(0, 0, 0, 0.8);
+    transform: translateY(-8px);
+    border-color: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.9),
+                0 0 40px -10px rgba(0, 158, 212, 0.25);
 }
 
 .band-card__media {
@@ -558,12 +517,12 @@ html.is-scrolling { scrollbar-color: rgba(255,255,255,0.4) transparent; }
     height: 100%;
     object-fit: cover;
     object-position: center 30%;
-    transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1), filter 0.5s ease;
+    transition: transform 1.1s cubic-bezier(0.22, 1, 0.36, 1), filter 0.7s ease;
 }
 
 .band-card:hover .band-card__img {
-    transform: scale(1.05);
-    filter: grayscale(0.4);
+    transform: scale(1.08);
+    filter: grayscale(0.2) brightness(0.9);
 }
 
 .band-card__gradient {
@@ -612,25 +571,64 @@ html.is-scrolling { scrollbar-color: rgba(255,255,255,0.4) transparent; }
     color: rgba(255, 255, 255, 0.75);
 }
 
-/* Desktop: portrait cards, bio hidden until hover */
+/* Desktop: portrait cards, bio overlays image on hover */
 @media (min-width: 1024px) {
     .band-card__media {
         aspect-ratio: 3 / 4;
     }
     .band-card__name {
-        font-size: 1.75rem;
+        font-size: 2rem;
+        transition: opacity 0.5s ease, transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .band-card__role {
+        transition: opacity 0.5s ease, transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
     }
     .band-card__body {
-        max-height: 0;
-        padding: 0 1.25rem;
-        overflow: hidden;
-        transition: max-height 0.6s cubic-bezier(0.22, 1, 0.36, 1),
-                    padding 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem;
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.92) 100%);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        opacity: 0;
+        transform: translateY(12px);
+        transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+                    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+        pointer-events: none;
+        z-index: 3;
+    }
+    .band-card__bio {
+        color: rgba(255, 255, 255, 0.92);
+        font-size: 1rem;
+        line-height: 1.65;
+        text-align: center;
+        opacity: 0;
+        transform: translateY(8px);
+        transition: opacity 0.7s ease 0.1s, transform 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.1s;
     }
     .band-card:hover .band-card__body,
     .band-card:focus-within .band-card__body {
-        max-height: 22rem;
-        padding: 1rem 1.25rem 1.5rem;
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+    }
+    .band-card:hover .band-card__bio,
+    .band-card:focus-within .band-card__bio {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    .band-card:hover .band-card__name,
+    .band-card:focus-within .band-card__name {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+    .band-card:hover .band-card__role,
+    .band-card:focus-within .band-card__role {
+        opacity: 0;
+        transform: translateY(-8px);
     }
 }
 
