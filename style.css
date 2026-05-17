@@ -1,0 +1,863 @@
+/* Custom styles that Tailwind can't easily express.
+   Layout/spacing/colour is in index.html via utility classes. */
+
+:root {
+    --body: #fff;
+    --nav: #000;
+    --back-transparent: rgba(0, 0, 0, 0.4);
+}
+
+html { scroll-behavior: smooth; }
+
+/* Auto-hide scrollbar: only visible while scrolling.
+   main.js adds .is-scrolling to <html> on scroll, removed ~800ms after idle. */
+::-webkit-scrollbar { width: 10px; background: transparent; }
+::-webkit-scrollbar-track { background-color: transparent; }
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0);
+    border-radius: 10px;
+    transition: background 0.4s ease;
+}
+html.is-scrolling::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.4);
+}
+html.is-scrolling::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.7);
+}
+/* Firefox */
+html { scrollbar-width: thin; scrollbar-color: transparent transparent; }
+html.is-scrolling { scrollbar-color: rgba(255,255,255,0.4) transparent; }
+
+/* --- Header active state on scroll (toggled by main.js) --- */
+.header.active {
+    background-color: var(--nav);
+}
+
+/* --- Mobile nav menu open/close (toggled by main.js) --- */
+.span .fa-times { display: none; }
+.nav-menu-open .span .fa-times { display: block; }
+.nav-menu-open .span .fa-bars { display: none; }
+
+@media (max-width: 1023px) {
+    .nav-list {
+        transform: translateX(100vw);
+        transition: transform 0.8s ease, opacity 0.8s ease;
+        opacity: 0;
+    }
+    .nav-list li a {
+        opacity: 0;
+        transform: translateY(40px);
+        transition: opacity 1s ease, transform 1s ease;
+    }
+    .nav-menu-open .nav-list {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    .nav-menu-open .nav-list li a {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    .nav-menu-open .nav-list li:nth-child(1) a { transition-delay: 0.3s; }
+    .nav-menu-open .nav-list li:nth-child(2) a { transition-delay: 0.45s; }
+    .nav-menu-open .nav-list li:nth-child(3) a { transition-delay: 0.6s; }
+    .nav-menu-open .nav-list li:nth-child(4) a { transition-delay: 0.75s; }
+    .nav-menu-open .nav-list li:nth-child(5) a { transition-delay: 0.9s; }
+    .nav-menu-open .nav-list li:nth-child(6) a { transition-delay: 1.05s; }
+}
+
+/* --- Hero slideshow (full-screen rotating background) --- */
+.slideshow {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 0;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.slideshow li {
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    animation: fade-out 28s infinite;
+    background: url('images/Killerz - Matt Higgs-1118.jpg') center no-repeat;
+    background-size: cover;
+    filter: grayscale(1) contrast(1.2);
+}
+
+.slideshow li:nth-child(2) { background-image: url('images/JCP012132.jpg'); animation-delay: 4s; }
+.slideshow li:nth-child(3) { background-image: url('images/Killerz - Matt Higgs-1516.jpg'); animation-delay: 8s; }
+.slideshow li:nth-child(4) { background-image: url('images/Grant.jpg'); animation-delay: 12s; }
+.slideshow li:nth-child(5) { background-image: url('images/Killerz - Matt Higgs-1421.jpg'); animation-delay: 16s; }
+.slideshow li:nth-child(6) { background-image: url('images/mike-spaceman.jpg'); animation-delay: 20s; }
+.slideshow li:nth-child(7) { background-image: url('images/mike-crowd.jpg'); animation-delay: 24s; }
+.slideshow li:nth-child(8) { background-image: url('images/whitwell.jpg'); animation-delay: 28s; }
+
+@keyframes fade-out {
+    0% { opacity: 0; }
+    8% { opacity: 1; }
+    33% { opacity: 1; }
+    41% { opacity: 0; }
+}
+
+/* Hero overlay — richer gradient than a flat dim */
+.hero-overlay {
+    background:
+        radial-gradient(ellipse at center, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.7) 100%),
+        linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 35%, rgba(0,0,0,0.85) 100%);
+}
+
+.main-heading #logo {
+    filter: drop-shadow(5px 5px 12px rgba(0, 0, 0, 0.8));
+    animation: fadeIn 1.2s ease-out;
+}
+
+/* Hero eyebrow + tagline */
+.hero-eyebrow {
+    animation: fadeIn 1s ease-out 0.2s both;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
+}
+.hero-tagline {
+    animation: fadeIn 1s ease-out 0.5s both;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
+}
+.hero-cta-row,
+.hero-socials {
+    animation: fadeIn 1s ease-out 0.8s both;
+}
+
+/* Hero CTAs */
+.hero-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.9rem 2rem;
+    border-radius: 999px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    white-space: nowrap;
+}
+.hero-cta--primary {
+    background: #fff;
+    color: #000;
+}
+.hero-cta--primary:hover {
+    background: #00ffff;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px -8px rgba(0, 255, 255, 0.5);
+}
+.hero-cta--ghost {
+    background: transparent;
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+}
+.hero-cta--ghost:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: #fff;
+    transform: translateY(-2px);
+}
+
+/* Scroll-down indicator */
+.hero-scroll {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    z-index: 3;
+    animation: fadeIn 1s ease-out 1.2s both;
+    transition: color 0.3s ease;
+}
+@media (min-width: 768px) {
+    .hero-scroll { display: flex; }
+}
+.hero-scroll:hover { color: #fff; }
+.hero-scroll__line {
+    width: 1px;
+    height: 50px;
+    background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.6));
+    position: relative;
+    overflow: hidden;
+}
+.hero-scroll__line::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: linear-gradient(to bottom, transparent, #fff);
+    animation: scroll-drop 2s ease-in-out infinite;
+}
+@keyframes scroll-drop {
+    0% { top: -50%; }
+    100% { top: 100%; }
+}
+
+/* Hero social pills */
+.hero-social {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    background: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    color: #fff;
+    font-size: 1.1rem;
+    transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.hero-social:hover {
+    background: #fff;
+    color: #000;
+    transform: scale(1.1);
+    border-color: #fff;
+}
+@media (min-width: 768px) {
+    .hero-social {
+        width: 3rem;
+        height: 3rem;
+        font-size: 1.25rem;
+    }
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(40px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Tour section background --- */
+.section-tour {
+    background: url('images/tour-back.png') center no-repeat;
+    background-size: cover;
+    box-shadow: inset 0px -100px 80px -50px var(--nav);
+    min-height: 700px;
+}
+
+.section-tour::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: var(--back-transparent);
+    z-index: 0;
+}
+
+/* --- Tour gig cards (rendered by main.js) --- */
+.gig-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    width: 100%;
+    max-width: 56rem;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+@media (min-width: 1024px) {
+    .gig-grid {
+        max-width: 72rem;
+        gap: 1.25rem;
+    }
+}
+
+.gig-card {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 1rem;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+                background 0.4s ease,
+                border-color 0.4s ease,
+                box-shadow 0.4s ease;
+    text-align: left;
+}
+
+.gig-card:hover {
+    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.07);
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 12px 40px -10px rgba(0, 0, 0, 0.6);
+}
+
+.gig-date {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 4.5rem;
+    padding: 0.5rem 0.75rem;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 0.75rem;
+    line-height: 1.1;
+}
+
+.gig-date__day {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1;
+}
+
+.gig-date__month {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #fff;
+    margin-top: 0.15rem;
+}
+
+.gig-date__year {
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.55);
+    margin-top: 0.25rem;
+}
+
+.gig-info {
+    min-width: 0;
+}
+
+.gig-venue {
+    font-size: 1.05rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: #fff;
+    margin: 0 0 0.25rem 0;
+    line-height: 1.2;
+}
+
+.gig-location {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0;
+}
+
+.gig-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.6rem 1.25rem;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+    transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.gig-cta--book {
+    background: #fff;
+    color: #000;
+    cursor: pointer;
+}
+
+.gig-cta--book:hover {
+    background: #00ffff;
+    color: #000;
+    transform: scale(1.04);
+    box-shadow: 0 0 24px rgba(0, 255, 255, 0.4);
+}
+
+.gig-cta--soon {
+    background: transparent;
+    color: rgba(255, 255, 255, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    cursor: default;
+}
+
+@media (min-width: 640px) {
+    .gig-card {
+        padding: 1.25rem 1.5rem;
+        gap: 1.5rem;
+    }
+    .gig-venue { font-size: 1.25rem; }
+    .gig-location { font-size: 0.95rem; }
+}
+
+@media (min-width: 1024px) {
+    .gig-card {
+        padding: 1.5rem 2rem;
+        gap: 2rem;
+    }
+    .gig-date { min-width: 5.5rem; padding: 0.75rem 1rem; }
+    .gig-date__day { font-size: 2.25rem; }
+    .gig-date__month { font-size: 0.85rem; }
+    .gig-venue { font-size: 1.5rem; }
+    .gig-cta { padding: 0.75rem 1.75rem; font-size: 0.9rem; }
+}
+
+/* Mobile: stack action below info if needed */
+@media (max-width: 480px) {
+    .gig-card {
+        grid-template-columns: auto 1fr;
+        grid-template-areas:
+            "date info"
+            "action action";
+        gap: 0.85rem 1rem;
+    }
+    .gig-date { grid-area: date; }
+    .gig-info { grid-area: info; }
+    .gig-action { grid-area: action; }
+    .gig-action { display: flex; justify-content: center; }
+    .gig-cta { width: 100%; }
+}
+
+/* Animated reveal for cards on first appearance */
+.section-tour.is-visible .gig-card {
+    animation: rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.section-tour.is-visible .gig-card:nth-child(1) { animation-delay: 0.05s; }
+.section-tour.is-visible .gig-card:nth-child(2) { animation-delay: 0.12s; }
+.section-tour.is-visible .gig-card:nth-child(3) { animation-delay: 0.19s; }
+.section-tour.is-visible .gig-card:nth-child(4) { animation-delay: 0.26s; }
+.section-tour.is-visible .gig-card:nth-child(5) { animation-delay: 0.33s; }
+.section-tour.is-visible .gig-card:nth-child(n+6) { animation-delay: 0.4s; }
+
+/* --- Marquee: modern CSS-animated ticker (replaces deprecated <marquee>) --- */
+.marquee {
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+            mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+.marquee-track {
+    display: flex;
+    align-items: center;
+    width: max-content;
+    height: 100%;
+    animation: marquee-scroll 60s linear infinite;
+    line-height: 1;
+}
+.marquee:hover .marquee-track {
+    animation-play-state: paused;
+}
+.marquee-content {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    padding-right: 3rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    line-height: 1;
+}
+.marquee-content strong {
+    color: #fff;
+    margin-right: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+}
+@keyframes marquee-scroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+}
+
+/* Sticky on scroll — toggled by main.js */
+.marquee.fixed {
+    position: sticky;
+    top: 76px;
+    z-index: 109;
+}
+
+/* --- Contact form: hide honeypot field off-screen --- */
+#nice-try {
+    position: absolute !important;
+    left: -100000px;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+}
+
+/* --- Meet the Band: responsive cards ---
+   Mobile: photo (16:10) with name overlay + bio shown below.
+   Desktop: 4-up grid, taller portrait cards, bio fades in on hover. */
+
+.band-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    width: 100%;
+    max-width: 36rem;
+    margin: 0 auto;
+}
+
+@media (min-width: 640px) {
+    .band-grid {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 56rem;
+        gap: 1.5rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .band-grid {
+        grid-template-columns: repeat(4, 1fr);
+        max-width: none;
+        gap: 1.5rem;
+    }
+}
+
+.band-card {
+    display: flex;
+    flex-direction: column;
+    border-radius: 1.25rem;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+                border-color 0.4s ease,
+                box-shadow 0.4s ease;
+}
+
+.band-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(255, 255, 255, 0.18);
+    box-shadow: 0 20px 50px -20px rgba(0, 0, 0, 0.8);
+}
+
+.band-card__media {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+}
+
+.band-card__img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 30%;
+    transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1), filter 0.5s ease;
+}
+
+.band-card:hover .band-card__img {
+    transform: scale(1.05);
+    filter: grayscale(0.4);
+}
+
+.band-card__gradient {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.3) 45%, transparent 70%);
+}
+
+.band-card__name {
+    position: absolute;
+    left: 1.1rem;
+    bottom: 1rem;
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    color: #fff;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
+}
+
+.band-card__role {
+    position: absolute;
+    right: 1.1rem;
+    bottom: 1.15rem;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.7);
+    padding: 0.3rem 0.6rem;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 999px;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.band-card__body {
+    padding: 1rem 1.25rem 1.25rem;
+}
+
+.band-card__bio {
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.55;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+/* Desktop: portrait cards, bio hidden until hover */
+@media (min-width: 1024px) {
+    .band-card__media {
+        aspect-ratio: 3 / 4;
+    }
+    .band-card__name {
+        font-size: 1.75rem;
+    }
+    .band-card__body {
+        max-height: 0;
+        padding: 0 1.25rem;
+        overflow: hidden;
+        transition: max-height 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+                    padding 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .band-card:hover .band-card__body,
+    .band-card:focus-within .band-card__body {
+        max-height: 22rem;
+        padding: 1rem 1.25rem 1.5rem;
+    }
+}
+
+/* --- Scroll-triggered reveal animations ---
+   Added to elements via the `reveal` class; main.js toggles `.is-visible` when
+   the element enters the viewport. Variants change the entry direction. */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.9s ease-out, transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform;
+}
+.reveal.reveal-left { transform: translateX(-60px); }
+.reveal.reveal-right { transform: translateX(60px); }
+.reveal.reveal-scale { transform: scale(0.92); }
+.reveal.reveal-blur { filter: blur(8px); transition: opacity 0.9s ease-out, transform 0.9s cubic-bezier(0.22, 1, 0.36, 1), filter 0.9s ease-out; }
+
+.reveal.is-visible {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+    filter: blur(0);
+}
+
+/* Stagger children inside a `.reveal-stagger` container */
+.reveal-stagger.is-visible > * {
+    animation: rise 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.reveal-stagger.is-visible > *:nth-child(1) { animation-delay: 0.05s; }
+.reveal-stagger.is-visible > *:nth-child(2) { animation-delay: 0.15s; }
+.reveal-stagger.is-visible > *:nth-child(3) { animation-delay: 0.25s; }
+.reveal-stagger.is-visible > *:nth-child(4) { animation-delay: 0.35s; }
+.reveal-stagger.is-visible > *:nth-child(5) { animation-delay: 0.45s; }
+.reveal-stagger.is-visible > *:nth-child(6) { animation-delay: 0.55s; }
+.reveal-stagger > * { opacity: 0; }
+
+@keyframes rise {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Gallery images: gently lift in on first reveal */
+.gallery .is-visible .example-image-link {
+    animation: rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Social buttons: pulse glow on hover */
+.social-btn {
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), filter 0.4s ease, color 0.4s ease;
+}
+.social-btn:hover {
+    filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.6));
+}
+
+/* Submit button: subtle press effect */
+.button-submit:active {
+    transform: scale(0.97);
+}
+
+/* Respect user motion preference */
+@media (prefers-reduced-motion: reduce) {
+    .reveal, .reveal-stagger > *,
+    .main-heading #logo, .section-tour.is-visible tr,
+    .gallery .is-visible .example-image-link {
+        animation: none !important;
+        transition: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+        filter: none !important;
+    }
+}
+
+/* --- Contact form fields ---
+   Floating-label inputs with icon prefix, dark glass background. */
+
+.ks-field {
+    position: relative;
+    width: 100%;
+}
+
+.ks-field__icon {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(255, 255, 255, 0.45);
+    font-size: 0.95rem;
+    pointer-events: none;
+    transition: color 0.3s ease;
+    z-index: 1;
+}
+
+.ks-field__icon--top {
+    top: 1.15rem;
+    transform: none;
+}
+
+.ks-field__input {
+    width: 100%;
+    padding: 1.1rem 1rem 1.1rem 2.75rem;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 0.75rem;
+    color: #fff;
+    font-size: 1rem;
+    font-family: inherit;
+    outline: none;
+    transition: border-color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ks-field__input::placeholder {
+    color: transparent;
+}
+
+.ks-field__input:hover {
+    border-color: rgba(255, 255, 255, 0.22);
+}
+
+.ks-field__input:focus {
+    border-color: #fff;
+    background: rgba(255, 255, 255, 0.07);
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.08);
+}
+
+.ks-field:focus-within .ks-field__icon {
+    color: #fff;
+}
+
+.ks-field__label {
+    position: absolute;
+    left: 2.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(255, 255, 255, 0.55);
+    font-size: 0.95rem;
+    pointer-events: none;
+    transition: all 0.25s ease;
+    background: transparent;
+    padding: 0 0.4rem;
+}
+
+/* Float label up when input has content or is focused */
+.ks-field__input:focus ~ .ks-field__label,
+.ks-field__input:not(:placeholder-shown) ~ .ks-field__label {
+    top: 0;
+    left: 2.25rem;
+    font-size: 0.7rem;
+    color: #fff;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    background: #0a0a0a;
+    transform: translateY(-50%);
+}
+
+/* Textarea variant */
+.ks-field__input--textarea {
+    padding-top: 1.15rem;
+    padding-bottom: 1.15rem;
+    resize: vertical;
+    min-height: 7rem;
+    line-height: 1.5;
+}
+
+.ks-field--textarea .ks-field__label {
+    top: 1.15rem;
+    transform: none;
+}
+
+.ks-field--textarea .ks-field__input:focus ~ .ks-field__label,
+.ks-field--textarea .ks-field__input:not(:placeholder-shown) ~ .ks-field__label {
+    top: 0;
+    transform: translateY(-50%);
+}
+
+/* Date input — keep label always above (the native control has its own placeholder) */
+.ks-field--date .ks-field__input--date {
+    padding-top: 1.4rem;
+    padding-bottom: 0.85rem;
+    color: #fff;
+    font-family: inherit;
+}
+
+.ks-field__label--static {
+    top: 0.5rem !important;
+    left: 2.75rem !important;
+    transform: none !important;
+    font-size: 0.7rem !important;
+    color: rgba(255, 255, 255, 0.6) !important;
+    letter-spacing: 0.1em !important;
+    text-transform: uppercase !important;
+    background: transparent !important;
+}
+
+.ks-field--date:focus-within .ks-field__label--static {
+    color: #fff !important;
+}
+
+/* Submit button: muted by default, glows white when all required fields are valid */
+#form:invalid .button-submit {
+    background: rgba(255, 255, 255, 0.08);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+#form:invalid .button-submit:hover {
+    background: rgba(255, 255, 255, 0.13);
+    border-color: rgba(255, 255, 255, 0.4);
+}
+#form:valid .button-submit {
+    background: #fff;
+    color: #000;
+    border: 1px solid #fff;
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.15);
+}
+#form:valid .button-submit:hover {
+    background: #00ffff;
+    border-color: #00ffff;
+    color: #000;
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.45);
+    transform: translateY(-1px);
+}
+
+/* --- Date input on dark theme --- */
+::-webkit-calendar-picker-indicator { filter: invert(1); }
+input[type="date"]::-webkit-datetime-edit-text,
+input[type="date"]::-webkit-datetime-edit-month-field,
+input[type="date"]::-webkit-datetime-edit-day-field,
+input[type="date"]::-webkit-datetime-edit-year-field {
+    color: #fff;
+    text-transform: uppercase;
+}
