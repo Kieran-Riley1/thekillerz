@@ -406,7 +406,11 @@
 
                         <div class="lg:col-span-3">
                             <div class="form-card">
-                                <form name="contact" id="form" novalidate class="space-y-4">
+                                <form name="contact" id="form" action="https://formsubmit.co/info@thekillerz.co.uk" method="POST" novalidate class="space-y-4">
+
+                                    <input type="hidden" name="_subject" value="New website enquiry — The Killerz">
+                                    <input type="hidden" name="_template" value="table">
+                                    <input type="hidden" name="_captcha" value="false">
 
                                     <div class="ks-field">
                                         <i class="ks-field__icon fa-solid fa-user"></i>
@@ -442,7 +446,7 @@
                                         <label for="message" class="ks-field__label">Tell us about your event</label>
                                     </div>
 
-                                    <input type="text" id="nice-try" name="nice-try" placeholder="Type Here" tabindex="-1" autocomplete="off" aria-hidden="true">
+                                    <input type="text" id="nice-try" name="_honey" placeholder="Type Here" tabindex="-1" autocomplete="off" aria-hidden="true">
 
                                     <button type="submit" class="button-submit group w-full inline-flex items-center justify-center gap-3 font-semibold text-sm sm:text-base px-6 py-3 rounded-full cursor-pointer transition-all duration-300" id="submit_btn">
                                         <span>Send Message</span>

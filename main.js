@@ -47,11 +47,14 @@ const getTableData = () => {
         const weekday = weekdays[gigDate.getDay()];
 
         const cta = gig.ticket_link
-            ? `<a href="${gig.ticket_link}" target="_blank" rel="noopener" class="gig-cta gig-cta--book">
-                   Tickets
-                   <i class="fa-solid fa-arrow-right ml-2"></i>
+            ? `<a href="${gig.ticket_link}" target="_blank" rel="noopener" class="gig-cta gig-cta--book" aria-label="Buy tickets for ${gig.venue}" title="Tickets">
+                   <i class="fa-solid fa-ticket" aria-hidden="true"></i>
+                   <span class="gig-cta__sr">Tickets</span>
                </a>`
-            : `<span class="gig-cta gig-cta--soon">Coming Soon</span>`;
+            : `<span class="gig-cta gig-cta--soon" aria-label="Tickets coming soon" title="Tickets coming soon">
+                   <i class="fa-regular fa-clock" aria-hidden="true"></i>
+                   <span class="gig-cta__soon-label">Coming Soon</span>
+               </span>`;
 
         gigHtml += `
             <article class="gig-card">
@@ -193,16 +196,28 @@ const setupEventListeners = () => {
         $('#submit_btn').prop('disabled', true).find('span').text('Sending');
 
         $.ajax({
-            url: './contact.php',
+            url: 'https://formsubmit.co/ajax/info@thekillerz.co.uk',
             type: 'POST',
+            dataType: 'json',
             data: {
                 name: $('#name').val(),
                 email: $('#email').val(),
                 phone: $('#phone').val(),
                 date: $('#date').val(),
                 message: $('#message').val(),
+                _subject: 'New website enquiry — The Killerz',
+                _template: 'table',
+                _captcha: 'false',
+                _honey: $('#nice-try').val(),
             },
-            success: () => {
+            success: (response) => {
+                const accepted = response && (response.success === true || response.success === 'true');
+                if (!accepted) {
+                    $('#submit_btn').prop('disabled', false).find('span').text('Send Message');
+                    showFormError('That didn\'t send. Please email info@thekillerz.co.uk instead.');
+                    return;
+                }
+
                 $('#form').slideToggle();
                 $('#success').slideToggle();
             },

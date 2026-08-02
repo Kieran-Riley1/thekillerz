@@ -4,10 +4,12 @@ Static site for thekillerz.co.uk. Serve the folder rather than opening `index.ht
 the tour dates are fetched from `gigs.json`, which browsers block on `file://`:
 
 ```bash
-php -S localhost:8000
+python -m http.server 8000
 ```
 
-Use PHP rather than any other static server if you also want the contact form to post.
+The contact form posts to FormSubmit and delivers enquiries to `info@thekillerz.co.uk`.
+After deploying it for the first time, send one test enquiry and follow the activation link
+FormSubmit emails to that inbox. Delivery will not begin until that one-time confirmation is complete.
 
 ## Adding a gig
 
