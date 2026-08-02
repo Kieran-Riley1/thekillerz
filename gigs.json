@@ -70,13 +70,6 @@
     "ticket_link": ""
   },
   {
-    "date": "28-06-2026",
-    "venue": "Replika",
-    "city": "Catton",
-    "location": "England",
-    "ticket_link": "https://ontick.co.uk/event/replika"
-  },
-  {
     "date": "15-08-2026",
     "venue": "Derwent Fest",
     "city": "Derwent Reservoir",
@@ -115,13 +108,6 @@
     "date": "12-12-2026",
     "venue": "Eleven",
     "city": "Stoke on Trent",
-    "location": "England",
-    "ticket_link": ""
-  },
-  {
-    "date": "13-12-2026",
-    "venue": "Replika",
-    "city": "Catton",
     "location": "England",
     "ticket_link": ""
   }
