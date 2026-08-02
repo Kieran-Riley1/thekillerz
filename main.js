@@ -1,163 +1,30 @@
+let gigs = [];
 
+// Gigs live in gigs.json so a date can be added without touching this file.
+const loadGigs = () => $.getJSON('gigs.json')
+    .done((data) => { gigs = data; })
+    .fail(() => console.error('Could not load gigs.json'));
 
-let gigs = [
-  {
-    "date": "30-01-2026",
-    "venue": "HMV Empire",
-    "city": "Coventry",
-    "location": "England",
-    "ticket_link": "https://www.eventim.co.uk/event/the-killerz-hmv-empire-coventry-20481516/"
-  },
-  {
-    "date": "31-01-2026",
-    "venue": "Tenby De Valence Pavilion",
-    "city": "Tenby",
-    "location": "Wales",
-    "ticket_link": "https://www.devalencepavilion.com/event-details-registration/the-killerz"
-  },
-  {
-    "date": "21-02-2026",
-    "venue": "Queens Hall",
-    "city": "Nuneaton",
-    "location": "England",
-    "ticket_link": "https://www.universe.com/events/the-killerz-world-leading-tribute-to-the-killers-tickets-CS5B1T?ref=share-widget-buffer"
-  },
-  {
-    "date": "28-02-2026",
-    "venue": "The Old Fire Station",
-    "city": "Carlisle",
-    "location": "England",
-    "ticket_link": "https://www.skiddle.com/whats-on/Carlisle/Old-Fire-Station/The-Killerz/41274928/"
-  },
-  {
-    "date": "21-03-2026",
-    "venue": "The Old Woollen",
-    "city": "Farsley",
-    "location": "England",
-    "ticket_link": "https://www.seetickets.com/event/the-killerz/the-old-woollen/3332384"
-  },
-  {
-    "date": "25-04-2026",
-    "venue": "Binks Yard",
-    "city": "Nottingham",
-    "location": "England",
-    "ticket_link": "https://www.skiddle.com/whats-on/Nottingham/Binks-Yard/Coldplace--Binks-Yard/41592431/"
-  },
-  {
-    "date": "23-05-2026",
-    "venue": "Bromsgrove",
-    "city": "Bromsgrove",
-    "location": "England",
-    "ticket_link": "https://www.skiddle.com/whats-on/Birmingham/Bromsgrove-Rugby-Football-Club/Bromsgrove-Tribute-Festival-2026/41652138/"
-  },
-  {
-    "date": "13-06-2026",
-    "venue": "Earlham Park Tribute Festival",
-    "city": "Norwich",
-    "location": "England",
-    "ticket_link": "https://www.skiddle.com/whats-on/Norwich/Earlham-Park/Earlham-Park-Tribute-Festival/41483346/"
-  },
-  {
-    "date": "20-06-2026",
-    "venue": "Binks Yard",
-    "city": "Nottingham",
-    "location": "England",
-    "ticket_link": "https://www.skiddle.com/whats-on/Nottingham/Binks-Yard/"
-  },
-  {
-    "date": "27-06-2026",
-    "venue": "To be Announced",
-    "city": "TBA",
-    "location": "England",
-    "ticket_link": ""
-  },
-  {
-    "date": "28-06-2026",
-    "venue": "Replika",
-    "city": "Catton",
-    "location": "England",
-    "ticket_link": "https://ontick.co.uk/event/replika"
-  },
-  {
-    "date": "15-08-2026",
-    "venue": "Dewent Fest",
-    "city": "Derwent Reservoir",
-    "location": "England",
-    "ticket_link": "https://bookwhen.com/derwent-fest"
-  },
-  {
-    "date": "30-08-2026",
-    "venue": "Get the Covers on",
-    "city": "Stockton",
-    "location": "England",
-    "ticket_link": "https://www.ticketebo.co.uk/stockton-cc/get-the-covers-on-2026"
-  },
-  {
-    "date": "19-09-2026",
-    "venue": "The Music Forum",
-    "city": "Darlington",
-    "location": "England",
-    "ticket_link": "https://theforumonline.co.uk/all-events"
-  },
-  {
-    "date": "23-10-2026",
-    "venue": "Tropic at Ruislip",
-    "city": "Ruislip",
-    "location": "England",
-    "ticket_link": "https://www.tropicatruislip.co.uk/i-have-never-booked-before.html"
-  },
-  {
-    "date": "21-11-2026",
-    "venue": "Accrington MMC Charity Event",
-    "city": "Accrington",
-    "location": "England",
-    "ticket_link": ""
-  },
-  {
-    "date": "12-12-2026",
-    "venue": "Eleven",
-    "city": "Stoke on Trent",
-    "location": "England",
-    "ticket_link": ""
-  },
-  {
-    "date": "13-12-2026",
-    "venue": "Replika",
-    "city": "Catton",
-    "location": "England",
-    "ticket_link": ""
-  }
-];
-
-
-
-  // Example
-  format = [
-    {
-      "date": "DD-MM-YYYY",
-      "venue": "XXX",
-      "city": "XXX",
-      "location": "XXX",
-      "ticket_link": ""
-    },
-  ]
-
-
-// Utility functions
-const convertDate = (date) => {
-    return date.toLocaleString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
-};
+// To add a gig, copy this shape into the list above:
+// { "date": "DD-MM-YYYY", "venue": "", "city": "", "location": "", "ticket_link": "" }
 
 const parseDate = (dateString) => {
     const [day, month, year] = dateString.split("-");
     return new Date(year, month - 1, day);
 };
 
+// "Tenby, Wales" is worth saying; "Coventry, England" is just noise.
+const placeOf = (gig) => gig.location === 'England' ? gig.city : `${gig.city}, ${gig.location}`;
+
 // DOM ready function
 $(document).ready(() => {
-    getTableData();
-    getMarqueeData();
     setupEventListeners();
+
+    loadGigs().always(() => {
+        getTableData();
+        getMarqueeData();
+        renderEventSchema();
+    });
 });
 
 // Sorts gigs by date
@@ -181,7 +48,7 @@ const getTableData = () => {
 
         const cta = gig.ticket_link
             ? `<a href="${gig.ticket_link}" target="_blank" rel="noopener" class="gig-cta gig-cta--book">
-                   Book Now
+                   Tickets
                    <i class="fa-solid fa-arrow-right ml-2"></i>
                </a>`
             : `<span class="gig-cta gig-cta--soon">Coming Soon</span>`;
@@ -197,7 +64,7 @@ const getTableData = () => {
                     <h3 class="gig-venue">${gig.venue}</h3>
                     <p class="gig-location">
                         <i class="fa-solid fa-location-dot mr-1.5 text-white/50"></i>
-                        ${gig.city}, ${gig.location}
+                        ${placeOf(gig)}
                     </p>
                 </div>
                 <div class="gig-action">
@@ -207,6 +74,53 @@ const getTableData = () => {
         `;
     });
     $("#gig-table").html(gigHtml);
+};
+
+// Publishes the tour dates as structured data so search engines can list them as events.
+const renderEventSchema = () => {
+    const today = new Date();
+    const upcoming = sortByDate(gigs).filter(gig => parseDate(gig.date) >= today);
+
+    const schema = {
+        '@context': 'https://schema.org',
+        '@type': 'MusicGroup',
+        name: 'The Killerz',
+        description: "The UK's No 1 tribute to The Killers.",
+        url: 'https://www.thekillerz.co.uk/',
+        email: 'info@thekillerz.co.uk',
+        sameAs: [
+            'https://www.facebook.com/killerstribute/',
+            'https://www.instagram.com/killerstribute/',
+            'https://www.tiktok.com/@killerstribute',
+            'https://www.youtube.com/channel/UCoEnQkjtg8qYyPMfEy3j0LQ'
+        ],
+        event: upcoming.map(gig => {
+            const [day, month, year] = gig.date.split('-');
+            return {
+                '@type': 'MusicEvent',
+                name: `The Killerz at ${gig.venue}`,
+                startDate: `${year}-${month}-${day}`,
+                eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+                performer: { '@type': 'MusicGroup', name: 'The Killerz' },
+                location: {
+                    '@type': 'Place',
+                    name: gig.venue,
+                    address: {
+                        '@type': 'PostalAddress',
+                        addressLocality: gig.city,
+                        addressRegion: gig.location,
+                        addressCountry: 'GB'
+                    }
+                },
+                ...(gig.ticket_link ? { offers: { '@type': 'Offer', url: gig.ticket_link, availability: 'https://schema.org/InStock' } } : {})
+            };
+        })
+    };
+
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.textContent = JSON.stringify(schema);
+    document.head.appendChild(script);
 };
 
 // Generates marquee text for upcoming tour dates (CSS-animated ticker)
@@ -241,13 +155,18 @@ const setupEventListeners = () => {
     });
 
     // Toggle navigation menu open/close on clicking the menu icon
-    $('.span').on('click', () => {
-        header.classList.toggle('nav-menu-open');
-    });
+    const menuButton = document.querySelector('.span');
 
-    // Close the navigation menu when a link is clicked
-    $('.nav-link').on('click', () => {
-        header.classList.remove('nav-menu-open');
+    const setMenu = (open) => {
+        header.classList.toggle('nav-menu-open', open);
+        menuButton.setAttribute('aria-expanded', String(open));
+        menuButton.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    };
+
+    $('.span').on('click', () => setMenu(!header.classList.contains('nav-menu-open')));
+    $('.nav-link').on('click', () => setMenu(false));
+    $(document).on('keydown', (e) => {
+        if (e.key === 'Escape') setMenu(false);
     });
 
 
@@ -259,40 +178,50 @@ const setupEventListeners = () => {
 
 
 
-    // Form submission
-    $('#submit_btn').on('click', function () {
-        if (validate()) {
-            $.ajax({
-                url: './contact.php',
-                type: 'POST',
-                data: {
-                    name: $('#name').val(),
-                    email: $('#email').val(),
-                    phone: $('#phone').val(),
-                    date: $('#date').val(),
-                    message: $('#message').val(),
-                },
-                success: () => {
-                    $('#form').slideToggle();
-                    $('#success').slideToggle();
-                },
-                error: () => console.log('error'),
-            });
+    // Form submission — bound to submit so Enter/Go on a phone keyboard works too
+    $('#form').on('submit', function (event) {
+        event.preventDefault();
+        const problem = firstProblem();
+
+        if (problem) {
+            showFormError(problem.message);
+            $(problem.field).trigger('focus');
+            return;
         }
+
+        hideFormError();
+        $('#submit_btn').prop('disabled', true).find('span').text('Sending');
+
+        $.ajax({
+            url: './contact.php',
+            type: 'POST',
+            data: {
+                name: $('#name').val(),
+                email: $('#email').val(),
+                phone: $('#phone').val(),
+                date: $('#date').val(),
+                message: $('#message').val(),
+            },
+            success: () => {
+                $('#form').slideToggle();
+                $('#success').slideToggle();
+            },
+            error: () => {
+                $('#submit_btn').prop('disabled', false).find('span').text('Send Message');
+                showFormError('That didn\'t send. Please email info@thekillerz.co.uk instead.');
+            },
+        });
     });
 
 
-    $('#view-more-btn').on('click', function(e) {
-        e.preventDefault(); // Prevent default action if it's a link or a submit button
-        // showMoreGigs();
+    $('#view-more-btn').on('click', () => {
         $('.gallery').css('height', 'auto');
-        $('.btn-container').toggle()
-
-        // Optionally, hide the "View More" button if there are no more gigs to show
-        if ($('.hidden-gig').length === 0) {
-            $(this).hide();
-        }
+        $('#gallery-fade').hide();
+        $('.btn-container').hide();
     });
+
+    setupGalleryReveal();
+    setupViewer();
 
     // Scroll-triggered reveal animations
     const revealEls = document.querySelectorAll('.reveal, .section-head, .reveal-stagger, footer');
@@ -304,7 +233,7 @@ const setupEventListeners = () => {
                     io.unobserve(entry.target);
                 }
             });
-        }, { threshold: 0.15, rootMargin: '0px 0px -10% 0px' });
+        }, { threshold: 0, rootMargin: '0px 0px -12% 0px' });
         revealEls.forEach(el => io.observe(el));
     } else {
         revealEls.forEach(el => el.classList.add('is-visible'));
@@ -326,11 +255,165 @@ const setupEventListeners = () => {
 
 
 
-// Validation function
-const validate = () => {
-    const acceptedDomains = ['.com', '.co.uk'];
-    const email = $('#email').val();
-    const message = $('#message').val();
+// Each photo fades up once its file has actually decoded, so nothing pops in half-drawn.
+const setupGalleryReveal = () => {
+    const links = document.querySelectorAll('.example-image-link');
 
-    return $('#nice-try').val() === '' && new RegExp(acceptedDomains.join('|')).test(email) && message;
+    if (!('IntersectionObserver' in window)) {
+        links.forEach(link => link.classList.add('is-loaded'));
+        return;
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+            if (!entry.isIntersecting) return;
+
+            const link = entry.target;
+            const image = link.querySelector('img');
+            const show = () => setTimeout(() => link.classList.add('is-loaded'), index * 70);
+
+            if (image.complete) show();
+            else image.addEventListener('load', show, { once: true });
+
+            observer.unobserve(link);
+        });
+    }, { rootMargin: '0px 0px 10% 0px' });
+
+    links.forEach(link => observer.observe(link));
+};
+
+// Full-screen gallery viewer: arrows, swipe, Esc, and the photographer credit.
+const setupViewer = () => {
+    const links = [...document.querySelectorAll('.example-image-link')];
+    if (!links.length) return;
+
+    const viewer = document.createElement('div');
+    viewer.className = 'viewer';
+    viewer.hidden = true;
+    viewer.setAttribute('role', 'dialog');
+    viewer.setAttribute('aria-modal', 'true');
+    viewer.setAttribute('aria-label', 'Photo viewer');
+    viewer.innerHTML = `
+        <p class="viewer__count"></p>
+        <button type="button" class="viewer__btn viewer__btn--close" aria-label="Close viewer">
+            <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+        </button>
+        <button type="button" class="viewer__btn viewer__btn--prev" aria-label="Previous photo">
+            <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+        </button>
+        <button type="button" class="viewer__btn viewer__btn--next" aria-label="Next photo">
+            <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+        </button>
+        <figure class="viewer__figure">
+            <img class="viewer__img" alt="">
+            <figcaption class="viewer__caption"></figcaption>
+        </figure>`;
+    document.body.appendChild(viewer);
+
+    const image = viewer.querySelector('.viewer__img');
+    const caption = viewer.querySelector('.viewer__caption');
+    const count = viewer.querySelector('.viewer__count');
+    let current = 0;
+    let opener = null;
+
+    const preload = (index) => {
+        const link = links[(index + links.length) % links.length];
+        new Image().src = link.getAttribute('href');
+    };
+
+    // Most photos carry the band name as their title; only credits are worth showing.
+    const creditOf = (link) => {
+        const title = link.dataset.title || '';
+        return title.includes('The UK\'s No 1 Tribute') ? '' : title;
+    };
+
+    const render = () => {
+        const link = links[current];
+        image.src = link.getAttribute('href');
+        image.alt = link.querySelector('img').alt;
+        caption.innerHTML = creditOf(link);
+        count.textContent = `${current + 1} / ${links.length}`;
+        preload(current + 1);
+        preload(current - 1);
+    };
+
+    const goTo = (index) => {
+        current = (index + links.length) % links.length;
+        viewer.classList.add('is-swapping');
+        setTimeout(() => {
+            render();
+            viewer.classList.remove('is-swapping');
+        }, 180);
+    };
+
+    const open = (index) => {
+        opener = links[index];
+        current = index;
+        render();
+        viewer.hidden = false;
+        document.body.style.overflow = 'hidden';
+        requestAnimationFrame(() => viewer.classList.add('is-open'));
+        viewer.querySelector('.viewer__btn--close').focus();
+    };
+
+    const close = () => {
+        viewer.classList.remove('is-open');
+        document.body.style.overflow = '';
+        setTimeout(() => { viewer.hidden = true; }, 220);
+        if (opener) opener.focus();
+    };
+
+    links.forEach((link, index) => link.addEventListener('click', (event) => {
+        event.preventDefault();
+        open(index);
+    }));
+
+    viewer.querySelector('.viewer__btn--close').addEventListener('click', close);
+    viewer.querySelector('.viewer__btn--prev').addEventListener('click', () => goTo(current - 1));
+    viewer.querySelector('.viewer__btn--next').addEventListener('click', () => goTo(current + 1));
+
+    viewer.addEventListener('click', (event) => {
+        if (event.target === viewer || event.target.classList.contains('viewer__figure')) close();
+    });
+
+    document.addEventListener('keydown', (event) => {
+        if (viewer.hidden) return;
+        if (event.key === 'Escape') close();
+        if (event.key === 'ArrowLeft') goTo(current - 1);
+        if (event.key === 'ArrowRight') goTo(current + 1);
+    });
+
+    let touchStartX = null;
+    viewer.addEventListener('touchstart', (e) => { touchStartX = e.changedTouches[0].clientX; }, { passive: true });
+    viewer.addEventListener('touchend', (e) => {
+        if (touchStartX === null) return;
+        const distance = e.changedTouches[0].clientX - touchStartX;
+        if (Math.abs(distance) > 50) goTo(current + (distance < 0 ? 1 : -1));
+        touchStartX = null;
+    }, { passive: true });
+};
+
+const showFormError = (message) => $('#form-error').text(message).prop('hidden', false);
+const hideFormError = () => $('#form-error').prop('hidden', true);
+
+// Returns the first thing stopping the enquiry from being sent, or null.
+const firstProblem = () => {
+    if ($('#nice-try').val() !== '') return { field: '#nice-try', message: '' };
+
+    const required = [
+        ['#name', 'Please add your name.'],
+        ['#email', 'Please add an email address so we can reply.'],
+        ['#phone', 'Please add a phone number.'],
+        ['#date', 'Please add the date of your event.'],
+        ['#message', 'Please tell us a little about your event.'],
+    ];
+
+    const empty = required.find(([field]) => !$(field).val().trim());
+    if (empty) return { field: empty[0], message: empty[1] };
+
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test($('#email').val().trim())) {
+        return { field: '#email', message: 'That email address doesn\'t look right.' };
+    }
+
+    return null;
 };
