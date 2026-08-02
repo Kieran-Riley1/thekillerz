@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <title>The Killerz - The UK's No 1 Tribute to The Killers</title>
         <meta name="robots" content="index"/>
@@ -8,64 +9,55 @@
         <meta name="description" content="The Killerz - The UK's No 1 Tribute to The Killers" />
         <meta name="keywords" content="killerz, killers, thekillerz, thekillers, kopycat, kopycats, the kopycat killers, kopycat killers, fillers, the fillers, tribute, killers tribute, tribute band, the killerz, copycat, killers band, function band, wedding band, festival, for hire, tribute band uk, uk band, fake festival, tribfest, top tribute bands, fillers band, tribute singers, party band, world leading, tour, upcoming dates, gigs, agency band, hire, band hire, band promo, promo video, tribute acts management, the victims, victims" />
         <meta name="author" content="The Killerz - The UK's No 1 Tribute to The Killers" />
+        <link rel="canonical" href="https://www.thekillerz.co.uk/" />
+
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="The Killerz" />
+        <meta property="og:title" content="The Killerz - The UK's No 1 Tribute to The Killers" />
+        <meta property="og:description" content="Award-winning tribute to The Killers. See upcoming tour dates and book the band for festivals, weddings and events." />
+        <meta property="og:url" content="https://www.thekillerz.co.uk/" />
+        <meta property="og:image" content="https://www.thekillerz.co.uk/images/band-shot.jpg" />
+        <meta property="og:image:alt" content="The Killerz on stage" />
+        <meta name="twitter:card" content="summary_large_image" />
 
         <link rel="shortcut icon" href="images/kz.ico">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css">
-        <script src="https://cdn.tailwindcss.com"></script>
-        <script>
-            tailwind.config = {
-                theme: {
-                    extend: {
-                        fontFamily: {
-                            sans: ['"Open Sans"', 'sans-serif']
-                        },
-                        colors: {
-                            killerz: {
-                                bg: '#000',
-                                accent: '#009ed4',
-                                cyan: '#00ffff'
-                            }
-                        }
-                    }
-                }
-            }
-        </script>
-        <link rel="stylesheet" type="text/css" href="style.css" />
+        <link rel="stylesheet" type="text/css" href="tailwind.css?v=20260802" />
+        <link rel="stylesheet" type="text/css" href="style.css?v=20260802" />
     </head>
     <body class="bg-black text-white font-sans antialiased overflow-x-hidden">
 
         <header class="header fixed top-0 left-0 w-full z-[999] transition-colors duration-700">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 md:h-24 flex items-center">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 md:h-20 flex items-center">
                 <nav class="nav flex items-center justify-between w-full">
                     <a href="index.html" class="logo flex items-center">
-                        <img src="images/logo-z.png" alt="The Killerz - The UK's No 1 Tribute to The Killers" class="w-10 h-auto">
+                        <img src="images/logo-z.png" alt="The Killerz - The UK's No 1 Tribute to The Killers" class="w-8 h-auto">
                     </a>
 
-                    <button type="button" class="span lg:hidden text-white text-3xl relative z-[1500]" aria-label="Toggle menu">
+                    <button type="button" class="span lg:hidden text-white text-3xl relative z-[1500]" aria-label="Open menu" aria-expanded="false" aria-controls="nav-list">
                         <i class="fa fa-bars"></i>
                         <i class="fa fa-times"></i>
                     </button>
 
-                    <ul class="nav-list fixed top-0 left-0 w-full h-screen bg-black flex flex-col items-center justify-center z-[1400] lg:static lg:flex-row lg:items-center lg:justify-end lg:gap-8 lg:h-auto lg:w-auto lg:bg-transparent lg:translate-x-0 lg:opacity-100">
+                    <ul id="nav-list" class="nav-list fixed top-0 left-0 w-full h-screen bg-black flex flex-col items-center justify-center z-[1400] lg:static lg:flex-row lg:items-center lg:justify-end lg:gap-8 lg:h-auto lg:w-auto lg:bg-transparent lg:translate-x-0 lg:opacity-100">
                         <li class="nav-item">
-                            <a href="#home" class="nav-link block uppercase tracking-widest font-bold text-3xl lg:text-base lg:font-normal lg:tracking-wide px-4 py-2 rounded-lg hover:bg-white/90 hover:text-black transition" id="nav-btn">HOME</a>
+                            <a href="#home" class="nav-link block uppercase tracking-widest font-bold text-2xl lg:text-sm lg:font-normal lg:tracking-wide px-3 py-2 text-white/80 hover:text-white transition-colors">HOME</a>
                         </li>
                         <li class="nav-item">
-                            <a href="#tour" class="nav-link block uppercase tracking-widest font-bold text-3xl lg:text-base lg:font-normal lg:tracking-wide px-4 py-2 rounded-lg hover:bg-white/90 hover:text-black transition" id="nav-btn">TOUR</a>
+                            <a href="#tour" class="nav-link block uppercase tracking-widest font-bold text-2xl lg:text-sm lg:font-normal lg:tracking-wide px-3 py-2 text-white/80 hover:text-white transition-colors">TOUR</a>
                         </li>
                         <li class="nav-item">
-                            <a href="#gallery" class="nav-link block uppercase tracking-widest font-bold text-3xl lg:text-base lg:font-normal lg:tracking-wide px-4 py-2 rounded-lg hover:bg-white/90 hover:text-black transition" id="nav-btn">GALLERY</a>
+                            <a href="#gallery" class="nav-link block uppercase tracking-widest font-bold text-2xl lg:text-sm lg:font-normal lg:tracking-wide px-3 py-2 text-white/80 hover:text-white transition-colors">GALLERY</a>
                         </li>
                         <li class="nav-item">
-                            <a href="#about" class="nav-link block uppercase tracking-widest font-bold text-3xl lg:text-base lg:font-normal lg:tracking-wide px-4 py-2 rounded-lg hover:bg-white/90 hover:text-black transition" id="nav-btn">ABOUT</a>
+                            <a href="#about" class="nav-link block uppercase tracking-widest font-bold text-2xl lg:text-sm lg:font-normal lg:tracking-wide px-3 py-2 text-white/80 hover:text-white transition-colors">ABOUT</a>
                         </li>
                         <li class="nav-item">
-                            <a href="#band" class="nav-link block uppercase tracking-widest font-bold text-3xl lg:text-base lg:font-normal lg:tracking-wide px-4 py-2 rounded-lg hover:bg-white/90 hover:text-black transition" id="nav-btn">BAND</a>
+                            <a href="#band" class="nav-link block uppercase tracking-widest font-bold text-2xl lg:text-sm lg:font-normal lg:tracking-wide px-3 py-2 text-white/80 hover:text-white transition-colors">BAND</a>
                         </li>
                         <li class="nav-item">
-                            <a href="#contact" class="nav-link block uppercase tracking-widest font-bold text-3xl lg:text-base lg:font-normal lg:tracking-wide px-4 py-2 rounded-lg hover:bg-white/90 hover:text-black transition" id="nav-btn">CONTACT</a>
+                            <a href="#contact" class="nav-link block uppercase tracking-widest font-bold text-2xl lg:text-sm lg:font-normal lg:tracking-wide px-3 py-2 text-white/80 hover:text-white transition-colors">CONTACT</a>
                         </li>
                     </ul>
                 </nav>
@@ -91,14 +83,14 @@
                     <div class="main-heading mx-auto w-full">
                         <img id="logo" src="images/Killerz logo Backdrop Banner 1.png"
                             alt="The Killerz - The UK's No 1 Tribute to The Killers"
-                            class="max-w-[800px] w-full h-auto mx-auto">
+                            class="max-w-[620px] w-full h-auto mx-auto">
                         <h1 hidden>The Killerz - The UK's No 1 Tribute to The Killers</h1>
                     </div>
-                    <p class="hero-tagline text-sm sm:text-base md:text-lg text-white/85 mt-3 sm:mt-4 max-w-2xl mx-auto">
+                    <p class="hero-tagline text-xs sm:text-sm md:text-base text-white/80 mt-3 max-w-2xl mx-auto">
                         The UK's No 1 Tribute to The Killers.
                     </p>
 
-                    <div class="hero-socials flex justify-center gap-3 sm:gap-4 mt-5 sm:mt-6">
+                    <div class="hero-socials flex justify-center gap-3 mt-5">
                         <a href="https://www.facebook.com/killerstribute/" target="_blank" aria-label="Facebook" class="hero-social">
                             <i class="fa-brands fa-facebook" aria-hidden="true"></i>
                         </a>
@@ -116,17 +108,17 @@
 
             </section>
 
-            <section class="marquee bg-black text-white text-xs border-y border-white/10 sticky top-20 md:top-24 z-[109] overflow-hidden flex items-center justify-center h-12" id="marquee">
+            <section class="marquee bg-black text-white text-xs border-y border-white/10 sticky top-16 md:top-20 z-[109] overflow-hidden flex items-center justify-center h-10" id="marquee">
                 <div class="marquee-track">
                     <div class="marquee-content" id="marquee-text"></div>
                     <div class="marquee-content" id="marquee-text-clone" aria-hidden="true"></div>
                 </div>
             </section>
 
-            <section class="section-tour reveal relative w-full py-16 md:py-24 text-center" id="tour">
+            <section class="section-tour reveal relative w-full py-12 md:py-16 text-center" id="tour">
                 <div class="container-tour relative z-10 max-w-[150rem] w-full md:w-[95%] mx-auto px-4">
-                    <h2 class="section-head reveal text-center mb-12">
-                        <span class="heading block text-4xl md:text-5xl font-bold tracking-wide">TOUR DATES</span>
+                    <h2 class="section-head reveal text-center mb-8">
+                        <span class="heading block text-3xl md:text-4xl font-bold tracking-wide">TOUR DATES</span>
                     </h2>
 
                     <div class="gig-grid" id="gig-table"></div>
@@ -134,165 +126,171 @@
             </section>
 
             <section class="section-gallery reveal w-full bg-black relative" id="gallery">
-                <div class="gallery w-[95%] mx-auto pb-10 overflow-hidden" style="height: 1000px;">
-                    <h2 class="section-head reveal text-center mb-12 pt-10">
-                        <span class="heading block text-4xl md:text-5xl font-bold tracking-wide">Gallery</span>
+                <div class="gallery-clip relative">
+                <div class="gallery w-[95%] mx-auto overflow-hidden" style="height: 820px;">
+                    <h2 class="section-head reveal text-center mb-8 pt-8">
+                        <span class="heading block text-3xl md:text-4xl font-bold tracking-wide">Gallery</span>
                     </h2>
-                    <div class="row columns-2 sm:columns-3 lg:columns-4 gap-2 px-1">
+                    <div class="row columns-2 sm:columns-3 lg:columns-4 xl:columns-5 gap-2 px-1">
                         <a class="example-image-link block mb-2 break-inside-avoid" href="images/JCP01188.png" data-lightbox="gallery-set" data-title="<a href='https://www.jamieparrphotography.com/' target='_blank'> Jamie Parr Photography</a>">
-                            <img class="gall-img w-full rounded-md transition-transform duration-500 hover:scale-[0.97]" src="images/JCP01188.png" alt="The Killerz - The UK's No 1 Tribute to The Killers">
+                            <img class="gall-img w-full rounded-md" src="images/thumbs/JCP01188.jpg" alt="The Killerz - The UK's No 1 Tribute to The Killers" loading="lazy" decoding="async">
                         </a>
                         <a class="example-image-link block mb-2 break-inside-avoid" href="images/m+l.jpg" data-lightbox="gallery-set" data-title="The Killerz - The UK's No 1 Tribute to The Killers">
-                            <img class="gall-img w-full rounded-md transition-transform duration-500 hover:scale-[0.97]" src="images/m+l.jpg" alt="The Killerz - The UK's No 1 Tribute to The Killers">
+                            <img class="gall-img w-full rounded-md" src="images/thumbs/m+l.jpg" alt="The Killerz - The UK's No 1 Tribute to The Killers" loading="lazy" decoding="async">
                         </a>
                         <a class="example-image-link block mb-2 break-inside-avoid" href="images/mike (1).jpg" data-lightbox="gallery-set" data-title="The Killerz - The UK's No 1 Tribute to The Killers">
-                            <img class="gall-img w-full rounded-md transition-transform duration-500 hover:scale-[0.97]" src="images/mike (1).jpg" alt="The Killerz - The UK's No 1 Tribute to The Killers">
+                            <img class="gall-img w-full rounded-md" src="images/thumbs/mike (1).jpg" alt="The Killerz - The UK's No 1 Tribute to The Killers" loading="lazy" decoding="async">
                         </a>
                         <a class="example-image-link block mb-2 break-inside-avoid" href="images/Killerz - Matt Higgs-4897.jpg" data-lightbox="gallery-set" data-title="<a href='https://www.matthiggsphotography.co.uk' target='_blank'>Matt Higgs Photography</a>">
-                            <img class="gall-img w-full rounded-md transition-transform duration-500 hover:scale-[0.97]" src="images/Killerz - Matt Higgs-4897.jpg" alt="The Killerz - The UK's No 1 Tribute to The Killers">
+                            <img class="gall-img w-full rounded-md" src="images/thumbs/Killerz - Matt Higgs-4897.jpg" alt="The Killerz - The UK's No 1 Tribute to The Killers" loading="lazy" decoding="async">
                         </a>
                         <a class="example-image-link block mb-2 break-inside-avoid" href="images/sam-lewis.jpg" data-lightbox="gallery-set" data-title="The Killerz - The UK's No 1 Tribute to The Killers">
-                            <img class="gall-img w-full rounded-md transition-transform duration-500 hover:scale-[0.97]" src="images/sam-lewis.jpg" alt="The Killerz - The UK's No 1 Tribute to The Killers">
+                            <img class="gall-img w-full rounded-md" src="images/thumbs/sam-lewis.jpg" alt="The Killerz - The UK's No 1 Tribute to The Killers" loading="lazy" decoding="async">
                         </a>
                         <a class="example-image-link block mb-2 break-inside-avoid" href="images/las vegas.jpg" data-lightbox="gallery-set" data-title="The Killerz - The UK's No 1 Tribute to The Killers">
-                            <img class="gall-img w-full rounded-md transition-transform duration-500 hover:scale-[0.97]" src="images/las vegas.jpg" alt="The Killerz - The UK's No 1 Tribute to The Killers">
+                            <img class="gall-img w-full rounded-md" src="images/thumbs/las vegas.jpg" alt="The Killerz - The UK's No 1 Tribute to The Killers" loading="lazy" decoding="async">
                         </a>
                         <a class="example-image-link block mb-2 break-inside-avoid" href="images/mike3.jpg" data-lightbox="gallery-set" data-title="The Killerz - The UK's No 1 Tribute to The Killers">
-                            <img class="gall-img w-full rounded-md transition-transform duration-500 hover:scale-[0.97]" src="images/mike3.jpg" alt="The Killerz - The UK's No 1 Tribute to The Killers">
+                            <img class="gall-img w-full rounded-md" src="images/thumbs/mike3.jpg" alt="The Killerz - The UK's No 1 Tribute to The Killers" loading="lazy" decoding="async">
                         </a>
                         <a class="example-image-link block mb-2 break-inside-avoid" href="images/JCP01027.jpg" data-lightbox="gallery-set" data-title="<a href='https://www.jamieparrphotography.com/' target='_blank'> Jamie Parr Photography</a>">
-                            <img class="gall-img w-full rounded-md transition-transform duration-500 hover:scale-[0.97]" src="images/JCP01027.jpg" alt="The Killerz - The UK's No 1 Tribute to The Killers">
+                            <img class="gall-img w-full rounded-md" src="images/thumbs/JCP01027.jpg" alt="The Killerz - The UK's No 1 Tribute to The Killers" loading="lazy" decoding="async">
                         </a>
                         <a class="example-image-link block mb-2 break-inside-avoid" href="images/dan.jpg" data-lightbox="gallery-set" data-title="The Killerz - The UK's No 1 Tribute to The Killers">
-                            <img class="gall-img w-full rounded-md transition-transform duration-500 hover:scale-[0.97]" src="images/dan.jpg" alt="The Killerz - The UK's No 1 Tribute to The Killers">
+                            <img class="gall-img w-full rounded-md" src="images/thumbs/dan.jpg" alt="The Killerz - The UK's No 1 Tribute to The Killers" loading="lazy" decoding="async">
                         </a>
                         <a class="example-image-link block mb-2 break-inside-avoid" href="images/crowd-shot.jpg" data-lightbox="gallery-set" data-title="<a href='https://www.matthiggsphotography.co.uk' target='_blank'>Matt Higgs Photography</a>">
-                            <img class="gall-img w-full rounded-md transition-transform duration-500 hover:scale-[0.97]" src="images/crowd-shot.jpg" alt="The Killerz - The UK's No 1 Tribute to The Killers">
+                            <img class="gall-img w-full rounded-md" src="images/thumbs/crowd-shot.jpg" alt="The Killerz - The UK's No 1 Tribute to The Killers" loading="lazy" decoding="async">
                         </a>
                         <a class="example-image-link block mb-2 break-inside-avoid" href="images/queenshall.jpg" data-lightbox="gallery-set" data-title="The Killerz - The UK's No 1 Tribute to The Killers">
-                            <img class="gall-img w-full rounded-md transition-transform duration-500 hover:scale-[0.97]" src="images/queenshall.jpg" alt="The Killerz - The UK's No 1 Tribute to The Killers">
+                            <img class="gall-img w-full rounded-md" src="images/thumbs/queenshall.jpg" alt="The Killerz - The UK's No 1 Tribute to The Killers" loading="lazy" decoding="async">
                         </a>
                         <a class="example-image-link block mb-2 break-inside-avoid" href="images/mike+lewis.jpg" data-lightbox="gallery-set" data-title="The Killerz - The UK's No 1 Tribute to The Killers">
-                            <img class="gall-img w-full rounded-md transition-transform duration-500 hover:scale-[0.97]" src="images/mike+lewis.jpg" alt="The Killerz - The UK's No 1 Tribute to The Killers">
+                            <img class="gall-img w-full rounded-md" src="images/thumbs/mike+lewis.jpg" alt="The Killerz - The UK's No 1 Tribute to The Killers" loading="lazy" decoding="async">
                         </a>
                         <a class="example-image-link block mb-2 break-inside-avoid" href="images/confetti-todd.jpg" data-lightbox="gallery-set" data-title="The Killerz - The UK's No 1 Tribute to The Killers">
-                            <img class="gall-img w-full rounded-md transition-transform duration-500 hover:scale-[0.97]" src="images/confetti-todd.jpg" alt="The Killerz - The UK's No 1 Tribute to The Killers">
+                            <img class="gall-img w-full rounded-md" src="images/thumbs/confetti-todd.jpg" alt="The Killerz - The UK's No 1 Tribute to The Killers" loading="lazy" decoding="async">
                         </a>
                         <a class="example-image-link block mb-2 break-inside-avoid" href="images/sam2.jpg" data-lightbox="gallery-set" data-title="The Killerz - The UK's No 1 Tribute to The Killers">
-                            <img class="gall-img w-full rounded-md transition-transform duration-500 hover:scale-[0.97]" src="images/sam2.jpg" alt="The Killerz - The UK's No 1 Tribute to The Killers">
+                            <img class="gall-img w-full rounded-md" src="images/thumbs/sam2.jpg" alt="The Killerz - The UK's No 1 Tribute to The Killers" loading="lazy" decoding="async">
                         </a>
                         <a class="example-image-link block mb-2 break-inside-avoid" href="images/people.png" data-lightbox="gallery-set" data-title="The Killerz - The UK's No 1 Tribute to The Killers">
-                            <img class="gall-img w-full rounded-md transition-transform duration-500 hover:scale-[0.97]" src="images/people.png" alt="The Killerz - The UK's No 1 Tribute to The Killers">
+                            <img class="gall-img w-full rounded-md" src="images/thumbs/people.jpg" alt="The Killerz - The UK's No 1 Tribute to The Killers" loading="lazy" decoding="async">
                         </a>
                         <a class="example-image-link block mb-2 break-inside-avoid" href="images/mikefist.jpg" data-lightbox="gallery-set" data-title="The Killerz - The UK's No 1 Tribute to The Killers">
-                            <img class="gall-img w-full rounded-md transition-transform duration-500 hover:scale-[0.97]" src="images/mikefist.jpg" alt="The Killerz - The UK's No 1 Tribute to The Killers">
+                            <img class="gall-img w-full rounded-md" src="images/thumbs/mikefist.jpg" alt="The Killerz - The UK's No 1 Tribute to The Killers" loading="lazy" decoding="async">
                         </a>
                         <a class="example-image-link block mb-2 break-inside-avoid" href="images/mike-crowd.jpg" data-lightbox="gallery-set" data-title="<a href='https://www.instagram.com/_biancavalentine/' target='_blank'>Bianca Valentine Photography</a>">
-                            <img class="gall-img w-full rounded-md transition-transform duration-500 hover:scale-[0.97]" src="images/mike-crowd.jpg" alt="The Killerz - The UK's No 1 Tribute to The Killers">
+                            <img class="gall-img w-full rounded-md" src="images/thumbs/mike-crowd.jpg" alt="The Killerz - The UK's No 1 Tribute to The Killers" loading="lazy" decoding="async">
                         </a>
                         <a class="example-image-link block mb-2 break-inside-avoid" href="images/flamingo.jpg" data-lightbox="gallery-set" data-title="The Killerz - The UK's No 1 Tribute to The Killers">
-                            <img class="gall-img w-full rounded-md transition-transform duration-500 hover:scale-[0.97]" src="images/flamingo.jpg" alt="The Killerz - The UK's No 1 Tribute to The Killers">
+                            <img class="gall-img w-full rounded-md" src="images/thumbs/flamingo.jpg" alt="The Killerz - The UK's No 1 Tribute to The Killers" loading="lazy" decoding="async">
                         </a>
                         <a class="example-image-link block mb-2 break-inside-avoid" href="images/mike.jpg" data-lightbox="gallery-set" data-title="The Killerz - The UK's No 1 Tribute to The Killers">
-                            <img class="gall-img w-full rounded-md transition-transform duration-500 hover:scale-[0.97]" src="images/mike.jpg" alt="The Killerz - The UK's No 1 Tribute to The Killers">
+                            <img class="gall-img w-full rounded-md" src="images/thumbs/mike.jpg" alt="The Killerz - The UK's No 1 Tribute to The Killers" loading="lazy" decoding="async">
                         </a>
                         <a class="example-image-link block mb-2 break-inside-avoid" href="images/The_Killerz_BPhotography_July_2022-4.jpg" data-lightbox="gallery-set" data-title="<a href='https://www.instagram.com/_biancavalentine/' target='_blank'>Bianca Valentine Photography</a>">
-                            <img class="gall-img w-full rounded-md transition-transform duration-500 hover:scale-[0.97]" src="images/The_Killerz_BPhotography_July_2022-4.jpg" alt="The Killerz - The UK's No 1 Tribute to The Killers">
+                            <img class="gall-img w-full rounded-md" src="images/thumbs/The_Killerz_BPhotography_July_2022-4.jpg" alt="The Killerz - The UK's No 1 Tribute to The Killers" loading="lazy" decoding="async">
                         </a>
                         <a class="example-image-link block mb-2 break-inside-avoid" href="images/confett.jpg" data-lightbox="gallery-set" data-title="The Killerz - The UK's No 1 Tribute to The Killers">
-                            <img class="gall-img w-full rounded-md transition-transform duration-500 hover:scale-[0.97]" src="images/confett.jpg" alt="The Killerz - The UK's No 1 Tribute to The Killers">
+                            <img class="gall-img w-full rounded-md" src="images/thumbs/confett.jpg" alt="The Killerz - The UK's No 1 Tribute to The Killers" loading="lazy" decoding="async">
                         </a>
                         <a class="example-image-link block mb-2 break-inside-avoid" href="images/studley2.jpg" data-lightbox="gallery-set" data-title="The Killerz - The UK's No 1 Tribute to The Killers">
-                            <img class="gall-img w-full rounded-md transition-transform duration-500 hover:scale-[0.97]" src="images/studley2.jpg" alt="The Killerz - The UK's No 1 Tribute to The Killers">
+                            <img class="gall-img w-full rounded-md" src="images/thumbs/studley2.jpg" alt="The Killerz - The UK's No 1 Tribute to The Killers" loading="lazy" decoding="async">
                         </a>
                         <a class="example-image-link block mb-2 break-inside-avoid" href="images/sam.jpg" data-lightbox="gallery-set" data-title="The Killerz - The UK's No 1 Tribute to The Killers">
-                            <img class="gall-img w-full rounded-md transition-transform duration-500 hover:scale-[0.97]" src="images/sam.jpg" alt="The Killerz - The UK's No 1 Tribute to The Killers">
+                            <img class="gall-img w-full rounded-md" src="images/thumbs/sam.jpg" alt="The Killerz - The UK's No 1 Tribute to The Killers" loading="lazy" decoding="async">
                         </a>
                         <a class="example-image-link block mb-2 break-inside-avoid" href="images/Killerz - Matt Higgs-1118.jpg" data-lightbox="gallery-set" data-title="<a href='https://www.matthiggsphotography.co.uk' target='_blank'>Matt Higgs Photography</a>">
-                            <img class="gall-img w-full rounded-md transition-transform duration-500 hover:scale-[0.97]" src="images/Killerz - Matt Higgs-1118.jpg" alt="The Killerz - The UK's No 1 Tribute to The Killers">
+                            <img class="gall-img w-full rounded-md" src="images/thumbs/Killerz - Matt Higgs-1118.jpg" alt="The Killerz - The UK's No 1 Tribute to The Killers" loading="lazy" decoding="async">
                         </a>
                         <a class="example-image-link block mb-2 break-inside-avoid" href="images/JCP00982.png" data-lightbox="gallery-set" data-title="The Killerz - The UK's No 1 Tribute to The Killers">
-                            <img class="gall-img w-full rounded-md transition-transform duration-500 hover:scale-[0.97]" src="images/JCP00982.png" alt="The Killerz - The UK's No 1 Tribute to The Killers">
+                            <img class="gall-img w-full rounded-md" src="images/thumbs/JCP00982.jpg" alt="The Killerz - The UK's No 1 Tribute to The Killers" loading="lazy" decoding="async">
                         </a>
                         <a class="example-image-link block mb-2 break-inside-avoid" href="images/studley3.jpg" data-lightbox="gallery-set" data-title="The Killerz - The UK's No 1 Tribute to The Killers">
-                            <img class="gall-img w-full rounded-md transition-transform duration-500 hover:scale-[0.97]" src="images/studley3.jpg" alt="The Killerz - The UK's No 1 Tribute to The Killers">
+                            <img class="gall-img w-full rounded-md" src="images/thumbs/studley3.jpg" alt="The Killerz - The UK's No 1 Tribute to The Killers" loading="lazy" decoding="async">
                         </a>
                         <a class="example-image-link block mb-2 break-inside-avoid" href="images/wrexham.jpg" data-lightbox="gallery-set" data-title="The Killerz - The UK's No 1 Tribute to The Killers">
-                            <img class="gall-img w-full rounded-md transition-transform duration-500 hover:scale-[0.97]" src="images/wrexham.jpg" alt="The Killerz - The UK's No 1 Tribute to The Killers">
+                            <img class="gall-img w-full rounded-md" src="images/thumbs/wrexham.jpg" alt="The Killerz - The UK's No 1 Tribute to The Killers" loading="lazy" decoding="async">
                         </a>
                         <a class="example-image-link block mb-2 break-inside-avoid" href="images/mike1.jpg" data-lightbox="gallery-set" data-title="The Killerz - The UK's No 1 Tribute to The Killers">
-                            <img class="gall-img w-full rounded-md transition-transform duration-500 hover:scale-[0.97]" src="images/mike1.jpg" alt="The Killerz - The UK's No 1 Tribute to The Killers">
+                            <img class="gall-img w-full rounded-md" src="images/thumbs/mike1.jpg" alt="The Killerz - The UK's No 1 Tribute to The Killers" loading="lazy" decoding="async">
                         </a>
                         <a class="example-image-link block mb-2 break-inside-avoid" href="images/man.jpg" data-lightbox="gallery-set" data-title="The Killerz - The UK's No 1 Tribute to The Killers">
-                            <img class="gall-img w-full rounded-md transition-transform duration-500 hover:scale-[0.97]" src="images/man.jpg" alt="The Killerz - The UK's No 1 Tribute to The Killers">
+                            <img class="gall-img w-full rounded-md" src="images/thumbs/man.jpg" alt="The Killerz - The UK's No 1 Tribute to The Killers" loading="lazy" decoding="async">
                         </a>
                         <a class="example-image-link block mb-2 break-inside-avoid" href="images/somerset.jpg" data-lightbox="gallery-set" data-title="The Killerz - The UK's No 1 Tribute to The Killers">
-                            <img class="gall-img w-full rounded-md transition-transform duration-500 hover:scale-[0.97]" src="images/somerset.jpg" alt="The Killerz - The UK's No 1 Tribute to The Killers">
+                            <img class="gall-img w-full rounded-md" src="images/thumbs/somerset.jpg" alt="The Killerz - The UK's No 1 Tribute to The Killers" loading="lazy" decoding="async">
                         </a>
                         <a class="example-image-link block mb-2 break-inside-avoid" href="images/lewis-guitar.jpg" data-lightbox="gallery-set" data-title="The Killerz - The UK's No 1 Tribute to The Killers">
-                            <img class="gall-img w-full rounded-md transition-transform duration-500 hover:scale-[0.97]" src="images/lewis-guitar.jpg" alt="The Killerz - The UK's No 1 Tribute to The Killers">
+                            <img class="gall-img w-full rounded-md" src="images/thumbs/lewis-guitar.jpg" alt="The Killerz - The UK's No 1 Tribute to The Killers" loading="lazy" decoding="async">
                         </a>
                         <a class="example-image-link block mb-2 break-inside-avoid" href="images/dan1.png" data-lightbox="gallery-set" data-title="The Killerz - The UK's No 1 Tribute to The Killers">
-                            <img class="gall-img w-full rounded-md transition-transform duration-500 hover:scale-[0.97]" src="images/dan1.png" alt="The Killerz - The UK's No 1 Tribute to The Killers">
+                            <img class="gall-img w-full rounded-md" src="images/thumbs/dan1.jpg" alt="The Killerz - The UK's No 1 Tribute to The Killers" loading="lazy" decoding="async">
                         </a>
                         <a class="example-image-link block mb-2 break-inside-avoid" href="images/sam3.jpg" data-lightbox="gallery-set" data-title="The Killerz - The UK's No 1 Tribute to The Killers">
-                            <img class="gall-img w-full rounded-md transition-transform duration-500 hover:scale-[0.97]" src="images/sam3.jpg" alt="The Killerz - The UK's No 1 Tribute to The Killers">
+                            <img class="gall-img w-full rounded-md" src="images/thumbs/sam3.jpg" alt="The Killerz - The UK's No 1 Tribute to The Killers" loading="lazy" decoding="async">
                         </a>
                         <a class="example-image-link block mb-2 break-inside-avoid" href="images/spaceman.jpg" data-lightbox="gallery-set" data-title="The Killerz - The UK's No 1 Tribute to The Killers">
-                            <img class="gall-img w-full rounded-md transition-transform duration-500 hover:scale-[0.97]" src="images/spaceman.jpg" alt="The Killerz - The UK's No 1 Tribute to The Killers">
+                            <img class="gall-img w-full rounded-md" src="images/thumbs/spaceman.jpg" alt="The Killerz - The UK's No 1 Tribute to The Killers" loading="lazy" decoding="async">
                         </a>
                         <a class="example-image-link block mb-2 break-inside-avoid" href="images/confett2.jpg" data-lightbox="gallery-set" data-title="The Killerz - The UK's No 1 Tribute to The Killers">
-                            <img class="gall-img w-full rounded-md transition-transform duration-500 hover:scale-[0.97]" src="images/confett2.jpg" alt="The Killerz - The UK's No 1 Tribute to The Killers">
+                            <img class="gall-img w-full rounded-md" src="images/thumbs/confett2.jpg" alt="The Killerz - The UK's No 1 Tribute to The Killers" loading="lazy" decoding="async">
                         </a>
                         <a class="example-image-link block mb-2 break-inside-avoid" href="images/mike-spaceman2.jpg" data-lightbox="gallery-set" data-title="<a href='https://www.jamieparrphotography.com/' target='_blank'> Jamie Parr Photography</a>">
-                            <img class="gall-img w-full rounded-md transition-transform duration-500 hover:scale-[0.97]" src="images/mike-spaceman2.jpg" alt="The Killerz - The UK's No 1 Tribute to The Killers">
+                            <img class="gall-img w-full rounded-md" src="images/thumbs/mike-spaceman2.jpg" alt="The Killerz - The UK's No 1 Tribute to The Killers" loading="lazy" decoding="async">
                         </a>
                         <a class="example-image-link block mb-2 break-inside-avoid" href="images/band-shot.jpg" data-lightbox="gallery-set" data-title="<a href='https://www.instagram.com/_biancavalentine/' target='_blank'>Bianca Valentine Photography</a>">
-                            <img class="gall-img w-full rounded-md transition-transform duration-500 hover:scale-[0.97]" src="images/band-shot.jpg" alt="The Killerz - The UK's No 1 Tribute to The Killers">
+                            <img class="gall-img w-full rounded-md" src="images/thumbs/band-shot.jpg" alt="The Killerz - The UK's No 1 Tribute to The Killers" loading="lazy" decoding="async">
                         </a>
                         <a class="example-image-link block mb-2 break-inside-avoid" href="images/band-red.jpg" data-lightbox="gallery-set" data-title="The Killerz - The UK's No 1 Tribute to The Killers">
-                            <img class="gall-img w-full rounded-md transition-transform duration-500 hover:scale-[0.97]" src="images/band-red.jpg" alt="The Killerz - The UK's No 1 Tribute to The Killers">
+                            <img class="gall-img w-full rounded-md" src="images/thumbs/band-red.jpg" alt="The Killerz - The UK's No 1 Tribute to The Killers" loading="lazy" decoding="async">
                         </a>
                         <a class="example-image-link block mb-2 break-inside-avoid" href="images/band2.jpg" data-lightbox="gallery-set" data-title="The Killerz - The UK's No 1 Tribute to The Killers">
-                            <img class="gall-img w-full rounded-md transition-transform duration-500 hover:scale-[0.97]" src="images/band2.jpg" alt="The Killerz - The UK's No 1 Tribute to The Killers">
+                            <img class="gall-img w-full rounded-md" src="images/thumbs/band2.jpg" alt="The Killerz - The UK's No 1 Tribute to The Killers" loading="lazy" decoding="async">
                         </a>
                         <a class="example-image-link block mb-2 break-inside-avoid" href="images/Grant.jpg" data-lightbox="gallery-set" data-title="The Killerz - The UK's No 1 Tribute to The Killers">
-                            <img class="gall-img w-full rounded-md transition-transform duration-500 hover:scale-[0.97]" src="images/Grant.jpg" alt="The Killerz - The UK's No 1 Tribute to The Killers">
+                            <img class="gall-img w-full rounded-md" src="images/thumbs/Grant.jpg" alt="The Killerz - The UK's No 1 Tribute to The Killers" loading="lazy" decoding="async">
                         </a>
                         <a class="example-image-link block mb-2 break-inside-avoid" href="images/carfest.jpg" data-lightbox="gallery-set" data-title="The Killerz - The UK's No 1 Tribute to The Killers">
-                            <img class="gall-img w-full rounded-md transition-transform duration-500 hover:scale-[0.97]" src="images/carfest.jpg" alt="The Killerz - The UK's No 1 Tribute to The Killers">
+                            <img class="gall-img w-full rounded-md" src="images/thumbs/carfest.jpg" alt="The Killerz - The UK's No 1 Tribute to The Killers" loading="lazy" decoding="async">
                         </a>
                         <a class="example-image-link block mb-2 break-inside-avoid" href="images/sam-purple.jpg" data-lightbox="gallery-set" data-title="The Killerz - The UK's No 1 Tribute to The Killers">
-                            <img class="gall-img w-full rounded-md transition-transform duration-500 hover:scale-[0.97]" src="images/sam-purple.jpg" alt="The Killerz - The UK's No 1 Tribute to The Killers">
+                            <img class="gall-img w-full rounded-md" src="images/thumbs/sam-purple.jpg" alt="The Killerz - The UK's No 1 Tribute to The Killers" loading="lazy" decoding="async">
                         </a>
                         <a class="example-image-link block mb-2 break-inside-avoid" href="images/visual.jpg" data-lightbox="gallery-set" data-title="The Killerz - The UK's No 1 Tribute to The Killers">
-                            <img class="gall-img w-full rounded-md transition-transform duration-500 hover:scale-[0.97]" src="images/visual.jpg" alt="The Killerz - The UK's No 1 Tribute to The Killers">
+                            <img class="gall-img w-full rounded-md" src="images/thumbs/visual.jpg" alt="The Killerz - The UK's No 1 Tribute to The Killers" loading="lazy" decoding="async">
                         </a>
                     </div>
                 </div>
-                <div class="btn-container w-full text-center relative bg-black h-8 -top-5" style="box-shadow: 0px -10px 20px 16px #000;">
-                    <button id="view-more-btn" class="bg-transparent text-white border border-white rounded-full px-8 py-2 text-lg font-bold cursor-pointer transition hover:bg-white hover:text-black">
+                    <div class="gallery-fade" id="gallery-fade" aria-hidden="true"></div>
+                </div>
+
+                <div class="btn-container w-full text-center pt-8">
+                    <button id="view-more-btn" class="bg-transparent text-white border border-white rounded-full px-6 py-2 text-sm font-bold cursor-pointer transition hover:bg-white hover:text-black">
                         VIEW MORE &#x25BC;
                     </button>
                 </div>
             </section>
 
-            <section class="section-about reveal py-20 md:py-28 px-4 md:px-8" id="about">
+            <section class="section-about reveal pt-16 md:pt-20 pb-10 px-4 md:px-8" id="about">
                 <div class="max-w-7xl mx-auto">
-                    <h2 class="section-head reveal text-center mb-12">
-                        <span class="heading block text-4xl md:text-5xl font-bold tracking-wide">About Us</span>
+                    <h2 class="section-head reveal text-center mb-8">
+                        <span class="heading block text-3xl md:text-4xl font-bold tracking-wide">About Us</span>
                     </h2>
 
                     <div class="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12 items-start">
                         <div class="about-copy reveal lg:col-span-3 space-y-5 text-base md:text-lg leading-relaxed text-white/85 text-center lg:text-left">
                             <p>
-                                The Killerz are one of the original tribute acts to The Killers &mdash; winners of a National Tribute Music Award and described as &ldquo;as exciting as the real thing&rdquo; by fans.
+                                The Killerz are one of the original tribute acts to The Killers, and winners of a National Tribute Music Award.
+                                We play theatres, tribute festivals, weddings and corporate shows across the UK and further afield.
                             </p>
                             <p>
-                                Performing across the UK and worldwide, the band have shared stages with high-profile clients including Chris Evans&rsquo; Car Fest, Butlins, Warner Hotels, Foodies Festivals and Alexandra Palace.
+                                We have shared stages with Chris Evans&rsquo; Car Fest, Butlins, Warner Hotels, Foodies Festivals and Alexandra Palace.
                             </p>
                             <p>
-                                With visual backdrops, lighting effects and a blast of Killer confetti, The Killerz bring the Las Vegas superstars to a venue near you.
+                                The full show travels with its own visual backdrops, lighting and a blast of Killer confetti, so a venue near
+                                you gets the Las Vegas superstars without the flight.
                             </p>
                         </div>
 
@@ -309,10 +307,10 @@
                 </div>
             </section>
 
-            <section class="section-meet reveal py-16 md:py-24 px-4 md:px-8" id="band">
+            <section class="section-meet reveal pt-10 md:pt-14 pb-14 md:pb-16 px-4 md:px-8" id="band">
                 <div class="max-w-7xl mx-auto">
-                    <h2 class="section-head reveal text-center mb-12">
-                        <span class="heading block text-4xl md:text-5xl font-bold tracking-wide">Meet the Band</span>
+                    <h2 class="section-head reveal text-center mb-8">
+                        <span class="heading block text-3xl md:text-4xl font-bold tracking-wide">Meet the Band</span>
                     </h2>
 
                     <div class="reveal-stagger band-grid">
@@ -382,10 +380,10 @@
                 </div>
             </section>
 
-            <section class="section-form reveal py-20 px-4 md:px-8" id="contact">
+            <section class="section-form reveal pt-14 pb-16 px-4 md:px-8" id="contact">
                 <div class="max-w-6xl mx-auto">
-                    <h2 class="section-head reveal text-center mb-12">
-                        <span class="heading inline-block text-4xl md:text-5xl font-bold tracking-wide">CONTACT US</span>
+                    <h2 class="section-head reveal text-center mb-8">
+                        <span class="heading inline-block text-3xl md:text-4xl font-bold tracking-wide">CONTACT US</span>
                         <span class="subheading block text-sm md:text-base font-semibold mt-4 text-white/80">
                             Fill in the form or email us at:<br><br>
                             <a href="mailto:info@thekillerz.co.uk?Subject=The%20Killerz,%20Contact%20Form%20Email" target="_top"
@@ -396,7 +394,7 @@
                         </span>
                     </h2>
 
-                    <div class="form grid grid-cols-1 lg:grid-cols-5 gap-6 lg:gap-10 items-stretch">
+                    <div class="form grid grid-cols-1 lg:grid-cols-5 gap-6 lg:gap-8 items-stretch">
                         <div class="hidden lg:block lg:col-span-2 relative rounded-2xl overflow-hidden ring-1 ring-white/10">
                             <img src="images/confetti-todd.jpg" class="form-image w-full h-full object-cover grayscale" alt="">
                             <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
@@ -407,24 +405,27 @@
                         </div>
 
                         <div class="lg:col-span-3">
-                            <div class="form-card bg-white/[0.03] border border-white/10 rounded-2xl p-5 sm:p-8 backdrop-blur-sm">
-                                <form name="contact" id="form" class="space-y-5">
+                            <div class="form-card">
+                                <form name="contact" id="form" novalidate class="space-y-4">
 
                                     <div class="ks-field">
                                         <i class="ks-field__icon fa-solid fa-user"></i>
-                                        <input id="name" type="text" name="name" required placeholder=" " class="ks-field__input">
+                                        <input id="name" type="text" name="name" required placeholder=" " class="ks-field__input"
+                                               autocomplete="name" autocapitalize="words" enterkeyhint="next">
                                         <label for="name" class="ks-field__label">Name</label>
                                     </div>
 
                                     <div class="ks-field">
                                         <i class="ks-field__icon fa-solid fa-envelope"></i>
-                                        <input id="email" type="email" name="email" required placeholder=" " class="ks-field__input">
+                                        <input id="email" type="email" name="email" required placeholder=" " class="ks-field__input"
+                                               autocomplete="email" autocapitalize="none" autocorrect="off" spellcheck="false" enterkeyhint="next">
                                         <label for="email" class="ks-field__label">Email</label>
                                     </div>
 
                                     <div class="ks-field">
                                         <i class="ks-field__icon fa-solid fa-phone"></i>
-                                        <input id="phone" type="tel" name="phone" required placeholder=" " class="ks-field__input">
+                                        <input id="phone" type="tel" name="phone" required placeholder=" " class="ks-field__input"
+                                               autocomplete="tel" inputmode="tel" enterkeyhint="next">
                                         <label for="phone" class="ks-field__label">Phone</label>
                                     </div>
 
@@ -436,16 +437,19 @@
 
                                     <div class="ks-field ks-field--textarea">
                                         <i class="ks-field__icon ks-field__icon--top fa-solid fa-comment-dots"></i>
-                                        <textarea id="message" name="message" rows="5" placeholder=" " required class="ks-field__input ks-field__input--textarea"></textarea>
+                                        <textarea id="message" name="message" rows="5" placeholder=" " required class="ks-field__input ks-field__input--textarea"
+                                                  enterkeyhint="done"></textarea>
                                         <label for="message" class="ks-field__label">Tell us about your event</label>
                                     </div>
 
                                     <input type="text" id="nice-try" name="nice-try" placeholder="Type Here" tabindex="-1" autocomplete="off" aria-hidden="true">
 
-                                    <button type="button" class="button-submit group w-full inline-flex items-center justify-center gap-3 font-semibold text-base sm:text-lg px-8 py-4 rounded-full cursor-pointer transition-all duration-300" id="submit_btn">
+                                    <button type="submit" class="button-submit group w-full inline-flex items-center justify-center gap-3 font-semibold text-sm sm:text-base px-6 py-3 rounded-full cursor-pointer transition-all duration-300" id="submit_btn">
                                         <span>Send Message</span>
                                         <i class="fa-solid fa-paper-plane transition-transform duration-300 group-hover:translate-x-1"></i>
                                     </button>
+
+                                    <p class="form-error text-sm text-center" id="form-error" role="alert" hidden></p>
                                 </form>
 
                                 <div id="success" hidden>
@@ -461,11 +465,11 @@
                 </div>
             </section>
 
-            <footer class="reveal relative bg-gradient-to-b from-black via-zinc-950 to-black border-t border-white/10 pt-16 pb-8 px-4 mt-10">
+            <footer class="reveal relative bg-gradient-to-b from-black via-zinc-950 to-black border-t border-white/10 pt-12 pb-8 px-4 mt-8">
                 <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 items-start text-center md:text-left">
 
                     <div class="flex flex-col items-center md:items-start gap-4">
-                        <img src="images/logo-z.png" alt="The Killerz" class="w-14 h-auto">
+                        <img src="images/logo-z.png" alt="The Killerz" class="w-11 h-auto">
                         <p class="text-sm text-white/70 max-w-xs leading-relaxed">
                             The UK's No 1 Tribute to The Killers — winners of a National Tribute Music Award. Available worldwide for festivals, weddings &amp; events.
                         </p>
@@ -478,19 +482,19 @@
                         <h3 class="text-xs uppercase tracking-[0.3em] text-white/60">Follow Us</h3>
                         <div class="flex justify-center gap-5">
                             <a href="https://www.facebook.com/killerstribute/" target="_blank" aria-label="Facebook"
-                               class="w-11 h-11 flex items-center justify-center rounded-full border border-white/20 hover:border-white hover:bg-white hover:text-black transition-all duration-300">
+                               class="w-10 h-10 flex items-center justify-center rounded-full border border-white/20 hover:border-white hover:bg-white hover:text-black transition-all duration-300">
                                 <i class="fa-brands fa-facebook text-lg" aria-hidden="true"></i>
                             </a>
                             <a href="https://www.instagram.com/killerstribute/" target="_blank" aria-label="Instagram"
-                               class="w-11 h-11 flex items-center justify-center rounded-full border border-white/20 hover:border-white hover:bg-white hover:text-black transition-all duration-300">
+                               class="w-10 h-10 flex items-center justify-center rounded-full border border-white/20 hover:border-white hover:bg-white hover:text-black transition-all duration-300">
                                 <i class="fa-brands fa-instagram text-lg" aria-hidden="true"></i>
                             </a>
                             <a href="https://www.tiktok.com/@killerstribute" target="_blank" aria-label="TikTok"
-                               class="w-11 h-11 flex items-center justify-center rounded-full border border-white/20 hover:border-white hover:bg-white hover:text-black transition-all duration-300">
+                               class="w-10 h-10 flex items-center justify-center rounded-full border border-white/20 hover:border-white hover:bg-white hover:text-black transition-all duration-300">
                                 <i class="fa-brands fa-tiktok text-lg" aria-hidden="true"></i>
                             </a>
                             <a href="https://www.youtube.com/channel/UCoEnQkjtg8qYyPMfEy3j0LQ" target="_blank" aria-label="YouTube"
-                               class="w-11 h-11 flex items-center justify-center rounded-full border border-white/20 hover:border-white hover:bg-white hover:text-black transition-all duration-300">
+                               class="w-10 h-10 flex items-center justify-center rounded-full border border-white/20 hover:border-white hover:bg-white hover:text-black transition-all duration-300">
                                 <i class="fa-brands fa-youtube text-lg" aria-hidden="true"></i>
                             </a>
                         </div>
@@ -506,7 +510,7 @@
 
                     <div class="flex flex-col items-center md:items-end gap-3">
                         <h3 class="text-xs uppercase tracking-[0.3em] text-white/60">Award Winning</h3>
-                        <img src="images/winner-banner.png" class="rounded-xl w-44 md:w-52 shadow-lg" alt="National Tribute Music Award Winners">
+                        <img src="images/winner-banner.png" class="rounded-xl w-36 md:w-44 shadow-lg" alt="National Tribute Music Award Winners">
                     </div>
                 </div>
 
@@ -523,9 +527,7 @@
         </main>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
-        <script src="main.js"></script>
+        <script src="main.js?v=20260802"></script>
 
     </body>
 
