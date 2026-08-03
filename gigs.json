@@ -105,11 +105,32 @@
     "ticket_link": "https://www.tropicatruislip.co.uk/i-have-never-booked-before.html"
   },
   {
+    "date": "06-11-2026",
+    "venue": "Mountsorrel Memorial Centre (MMC)",
+    "city": "Leicester",
+    "location": "England",
+    "ticket_link": "https://visitleicester.info/event/the-killerz-2/"
+  },
+  {
+    "date": "07-11-2026",
+    "venue": "The Rockin' Chair",
+    "city": "Wrexham",
+    "location": "Wales",
+    "ticket_link": ""
+  },
+  {
     "date": "21-11-2026",
-    "venue": "Accrington MMC Charity Event",
+    "venue": "Accrington MCC Charity Event",
     "city": "Accrington",
     "location": "England",
-    "ticket_link": ""
+    "ticket_link": "https://poplarsocial.com/blog/?killerz"
+  },
+  {
+    "date": "28-11-2026",
+    "venue": "Sandy Glade Holiday Park",
+    "city": "Burnham-on-Sea",
+    "location": "England",
+    "ticket_link": "https://www.johnfowlerholidays.com/entertainment/themed-weekends/noughties-weekend"
   },
   {
     "date": "12-12-2026",
@@ -117,6 +138,13 @@
     "city": "Stoke on Trent",
     "location": "England",
     "ticket_link": "https://ticket247.co.uk/Event/the-killerz-christmas-partay-live-at-eleven-stoke-at-eleven-music-venue-stoke-on-trent-547749"
+  },
+  {
+    "date": "20-03-2027",
+    "venue": "Queens Hall",
+    "city": "Nuneaton",
+    "location": "England",
+    "ticket_link": ""
   },
   {
     "date": "03-04-2027",
