@@ -13,6 +13,27 @@ const parseDate = (dateString) => {
     return new Date(year, month - 1, day);
 };
 
+// Compare calendar dates rather than times so a gig remains visible for its
+// entire date. The tour is UK-based, so use the current Europe/London date
+// regardless of the visitor's local timezone.
+const dateKey = (dateString) => {
+    const [day, month, year] = dateString.split('-');
+    return Number(`${year}${month}${day}`);
+};
+
+const ukTodayKey = () => {
+    const parts = new Intl.DateTimeFormat('en-GB', {
+        timeZone: 'Europe/London',
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric'
+    }).formatToParts(new Date());
+    const values = Object.fromEntries(parts.map(({ type, value }) => [type, value]));
+    return Number(`${values.year}${values.month}${values.day}`);
+};
+
+const isCurrentOrFutureGig = (gig, todayKey) => dateKey(gig.date) >= todayKey;
+
 // "Tenby, Wales" is worth saying; "Coventry, England" is just noise.
 const placeOf = (gig) => gig.location === 'England' ? gig.city : `${gig.city}, ${gig.location}`;
 
@@ -33,13 +54,13 @@ const sortByDate = (gigs) => gigs.sort((a, b) => parseDate(a.date) - parseDate(b
 // Generates HTML for gig cards
 const getTableData = () => {
     let gigHtml = '';
-    const today = new Date();
+    const todayKey = ukTodayKey();
     const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
     const weekdays = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
 
     sortByDate(gigs).forEach(gig => {
         const gigDate = parseDate(gig.date);
-        if (gigDate < today) return;
+        if (!isCurrentOrFutureGig(gig, todayKey)) return;
 
         const day = gigDate.getDate();
         const month = months[gigDate.getMonth()];
@@ -81,8 +102,8 @@ const getTableData = () => {
 
 // Publishes the tour dates as structured data so search engines can list them as events.
 const renderEventSchema = () => {
-    const today = new Date();
-    const upcoming = sortByDate(gigs).filter(gig => parseDate(gig.date) >= today);
+    const todayKey = ukTodayKey();
+    const upcoming = sortByDate(gigs).filter(gig => isCurrentOrFutureGig(gig, todayKey));
 
     const schema = {
         '@context': 'https://schema.org',
@@ -128,12 +149,12 @@ const renderEventSchema = () => {
 
 // Generates marquee text for upcoming tour dates (CSS-animated ticker)
 const getMarqueeData = () => {
-    const today = new Date();
+    const todayKey = ukTodayKey();
     const parts = ['<strong>Upcoming tour dates</strong>'];
 
     sortByDate(gigs).forEach(gig => {
         const gigDate = parseDate(gig.date);
-        if (gigDate > today) {
+        if (isCurrentOrFutureGig(gig, todayKey)) {
             const fullDate = gigDate.toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
             parts.push(`${fullDate} — ${gig.venue}, ${gig.city}`);
         }
